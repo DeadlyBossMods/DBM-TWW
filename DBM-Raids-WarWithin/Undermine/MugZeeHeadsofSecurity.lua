@@ -67,7 +67,7 @@ local timerMoltenGoldKnucklesCD						= mod:NewVarCountTimer(40, 466518, nil, nil
 
 mod:AddSetIconOption("SetIconOnGaol", 474461, true, 4, {6, 4, 3, 2})
 --Gallagio Goon
-mod:AddTimerLine(DBM:EJ_GetSectionInfo(31679))
+mod:AddTimerLine(DBM:EJ_GetSectionInfo(31739))
 --local warnEnraged									= mod:NewTargetNoFilterAnnounce(1214623, 2)--Requires unfiltered unit events, so not doing unless required/requested
 
 local specWarnShakedown								= mod:NewSpecialWarningDodge(472659, nil, nil, nil, 2, 15)
