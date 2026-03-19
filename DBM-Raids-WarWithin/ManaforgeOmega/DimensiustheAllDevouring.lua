@@ -23,8 +23,6 @@ mod:AddPrivateAuraSoundOption(1249425, true, 1249425, 1, 1)--Mass Destruction
 mod:AddPrivateAuraSoundOption(1237696, true, 1237696, 1, 2)--GTFO
 
 mod:RegisterEventsInCombat(
-	--For whatever reason ENCOUNTER_TIMELINE_EVENT_REMOVED is unrecognized by api LuaLS
-	---@diagnostic disable-next-line: dbm-event-checker
 	"ENCOUNTER_TIMELINE_EVENT_STATE_CHANGED"
 )
 
