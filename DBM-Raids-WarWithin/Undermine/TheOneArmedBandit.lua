@@ -112,7 +112,7 @@ local timerScatteredPayoutCD					= mod:NewCDCountTimer(25.2, 465580, nil, nil, n
 local timerExplosiveJackpotCD					= mod:NewCDCountTimer(25.2, 465587, nil, nil, nil, 2, nil, DBM_COMMON_L.DEADLY_ICON)
 local timerExplosiveJackpot						= mod:NewCastTimer(10, 465587, nil, nil, nil, 2, nil, DBM_COMMON_L.DEADLY_ICON)
 
-mod:AddPrivateAuraSoundOption(465325, true, 465322, 1, "lineyou", 17)
+mod:AddPrivateAuraSoundOption(465325, true, 465322, 1, 1, "lineyou", 17)
 
 mod.vb.spinCount = 0
 mod.vb.paylineCount = 0

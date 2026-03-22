@@ -50,8 +50,8 @@ local timerPhaseBladesCD						= mod:NewCDCountTimer(42.6, 433517, 100, nil, nil,
 local timerRainofArrowsCD						= mod:NewCDCountTimer(52.3, 439559, nil, nil, nil, 3)
 local timerDecimateCD							= mod:NewCDCountTimer(38.1, 442428, nil, nil, nil, 3)
 
-mod:AddPrivateAuraSoundOption(433517, true, 433517, 1, "runout", 2)--Phase Blades
-mod:AddPrivateAuraSoundOption(439191, true, 442428, 1, "lineyou", 17)--Decimate
+mod:AddPrivateAuraSoundOption(433517, true, 433517, 1, 1, "runout", 2)--Phase Blades
+mod:AddPrivateAuraSoundOption(439191, true, 442428, 1, 1, "lineyou", 17)--Decimate
 
 mod.vb.sweepCount = 0
 mod.vb.tankCombo = 0

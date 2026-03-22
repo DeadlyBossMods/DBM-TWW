@@ -63,7 +63,7 @@ local timerFaultyZapCD								= mod:NewCDCountTimer(97.3, 466979, nil, nil, nil,
 local timerSparkBlastIngitionCD						= mod:NewCDCountTimer(97.3, 472306, nil, false, 2, 1, nil, DBM_COMMON_L.HEROIC_ICON)
 
 mod:AddSetIconOption("SetIconOnAmp", 473748, false, 5, {1, 2, 3, 4, 5, 6, 7, 8})
-mod:AddPrivateAuraSoundOption(469380, true, 467606, 1, "lineyou", 17)
+mod:AddPrivateAuraSoundOption(469380, true, 467606, 1, 1, "lineyou", 17)
 mod:AddNamePlateOption("NPAuraOnResonance", 466128, true)
 --Stage Two: Hype Hustle
 mod:AddTimerLine(DBM:EJ_GetSectionInfo(31655))

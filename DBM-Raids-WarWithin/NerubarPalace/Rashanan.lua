@@ -49,9 +49,9 @@ local timerErosiveSprayCD						= mod:NewCDCountTimer(49, 439811, 123121, nil, ni
 local timerEnvelopingWebsCD						= mod:NewCDCountTimer(49, 454989, 157317, nil, nil, 3, nil, DBM_COMMON_L.MYTHIC_ICON, nil, 1)--Shortname "Webs"
 local timerMovementCD							= mod:NewStageContextCountTimer(49, 334371, nil, nil, nil, 6, 178717)
 
-mod:AddPrivateAuraSoundOption({439790,434406}, true, 439789, 1, "targetyou", 2)--Rolling Acid target
-mod:AddPrivateAuraSoundOption({455284,439815}, true, 455373, 1, "mobout", 2)--Infested Spawn target
-mod:AddPrivateAuraSoundOption({439783,434090}, true, 439784, 1, "runout", 2)--Spineret's Strands target
+mod:AddPrivateAuraSoundOption({439790,434406}, true, 439789, 1, 1, "targetyou", 2)--Rolling Acid target
+mod:AddPrivateAuraSoundOption({455284,439815}, true, 455373, 1, 1, "mobout", 2)--Infested Spawn target
+mod:AddPrivateAuraSoundOption({439783,434090}, true, 439784, 1, 1, "runout", 2)--Spineret's Strands target
 
 mod.vb.movementFinished = false
 --Totals used for fight overall
