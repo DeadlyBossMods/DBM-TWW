@@ -22,7 +22,7 @@
 ## X-DBM-Mod-Sort: 110
 ## X-DBM-Mod-MapID: 2738, 2601, 2552, 2708, 2706
 ## X-DBM-Mod-LoadCID: 220999, 221067, 221224, 221084, 231821, 238319
-## X-DBM-Mod-MinCoreRevision: 17286
+## X-DBM-Mod-MinCoreRevision: 20260522000000
 ## X-DBM-Mod-MinExpansion: 10
 
 localization.en.lua
