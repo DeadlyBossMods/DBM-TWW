@@ -46,10 +46,10 @@ mod:AddTimerLine(DBM:EJ_GetSectionInfo(30490))
 local warnVentingHeat								= mod:NewCountAnnounce(466751, 2, nil, nil, 2)
 local warnFocusedDetonation							= mod:NewCountAnnounce(466246, nil, nil, DBM_CORE_L.AUTO_ANNOUNCE_OPTIONS.stack:format(466246))
 
-local specWarnSupression							= mod:NewSpecialWarningDodgeCount(467182, nil, nil, nil, 2, 2)
-local specWarnScatterblastCanisters					= mod:NewSpecialWarningCount(466340, nil, nil, nil, 2, 2)
-local specWarnScatterblastCanistersTaunt			= mod:NewSpecialWarningTaunt(466340, nil, nil, nil, 1, 2)
-local specWarnBBBBombs								= mod:NewSpecialWarningCount(465952, nil, nil, nil, 2, 2)
+local specWarnSupression							= mod:NewSpecialWarningDodgeCount(467182, nil, nil, nil, 2, 2, nil, nil, "watchstep")
+local specWarnScatterblastCanisters					= mod:NewSpecialWarningCount(466340, nil, nil, nil, 2, 2, nil, nil, "shareone")
+local specWarnScatterblastCanistersTaunt			= mod:NewSpecialWarningTaunt(466340, nil, nil, nil, 1, 2, nil, nil, "tauntboss")
+local specWarnBBBBombs								= mod:NewSpecialWarningCount(465952, nil, nil, nil, 2, 2, nil, nil, "bombsoon")
 
 local timerScatterblastCanistersCD					= mod:NewCDCountTimer(97.3, 466340, nil, nil, nil, 5, nil, DBM_COMMON_L.TANK_ICON)
 local timerBBBBombsCD								= mod:NewCDCountTimer(97.3, 465952, nil, nil, nil, 3)
@@ -69,8 +69,8 @@ local warnChargedGigaBomb							= mod:NewTargetNoFilterAnnounce(469362, 2, nil, 
 local warnGigaBlast									= mod:NewCountAnnounce(469327, 3, nil, nil, 2)
 local warnFusedCanisters							= mod:NewIncomingCountAnnounce(466341, 3)
 
-local specChargedGigaBomb							= mod:NewSpecialWarningYou(469362, false, nil, nil, 1, 12)
-local specWarnGTFO									= mod:NewSpecialWarningGTFO(1215209, nil, nil, nil, 1, 8)
+local specChargedGigaBomb							= mod:NewSpecialWarningYou(469362, false, nil, nil, 1, 12, nil, nil, "targetyou")
+local specWarnGTFO									= mod:NewSpecialWarningGTFO(1215209, nil, nil, nil, 1, 8, nil, nil, "watchfeet")
 
 local timerGigaCoilsCD								= mod:NewCDCountTimer(97.3, 469286, nil, nil, nil, 5)
 local timerGigaBlastCD								= mod:NewCDCountTimer(6.5, 469327, nil, nil, nil, 3)--6.5 repeating but only while giga coil active
@@ -82,8 +82,8 @@ mod:AddPrivateAuraSoundOption(466344, true, 466341, 2, 1, "gather", 2)--Fused Ca
 mod:AddTimerLine(DBM:EJ_GetSectionInfo(31028))
 --local warnEnrage									= mod:NewTargetNoFilterAnnounce(1216852, 2, nil, "Tank|Healer|RemoveEnrage")
 
-local specWarnShockBarrage							= mod:NewSpecialWarningInterruptCount(466834, false, nil, nil, 1, 2)--REVISIT enabling by default based on player behavior
-local specWarnWrench								= mod:NewSpecialWarningDefensive(1216845, nil, nil, nil, 1, 2)
+local specWarnShockBarrage							= mod:NewSpecialWarningInterruptCount(466834, false, nil, nil, 1, 2, nil, nil, "kick2r")--REVISIT enabling by default based on player behavior
+local specWarnWrench								= mod:NewSpecialWarningDefensive(1216845, nil, nil, nil, 1, 2, nil, nil, "defensive")
 
 local timerShockBarrageCast							= mod:NewCastNPTimer(10, 466834, nil, nil, nil, 4, nil, DBM_COMMON_L.INTERRUPT_ICON)
 local timerWrenchCD									= mod:NewCDNPTimer(7.3, 1216845, nil, nil, nil, 5)
@@ -94,8 +94,8 @@ mod:AddSetIconOption("SetIconOnTechnician", -31482, true, 5, {8, 7, 6, 5, 4, 3})
 --Intermission: Docked and Loaded
 mod:AddTimerLine(DBM:EJ_GetSectionInfo(31558))
 
-local specWarnCratering								= mod:NewSpecialWarningDodge(1214226, nil, nil, nil, 3, 2)
-local specWarnTotalDestructionInterrupt				= mod:NewSpecialWarningInterrupt(1214369, "HasInterrupt", nil, nil, 1, 2)
+local specWarnCratering								= mod:NewSpecialWarningDodge(1214226, nil, nil, nil, 3, 2, nil, nil, "watchstep")
+local specWarnTotalDestructionInterrupt				= mod:NewSpecialWarningInterrupt(1214369, "HasInterrupt", nil, nil, 1, 2, nil, nil, "kickcast")
 
 local timerTotalDestruction							= mod:NewCastTimer(25, 1214369, nil, nil, nil, 4, nil, DBM_COMMON_L.INTERRUPT_ICON)
 
@@ -103,10 +103,10 @@ mod:AddPrivateAuraSoundOption(1219279, true, 1219279, 2, 1, "lineyou", 17)--Gall
 --Stage Three: What an Arsenal!
 mod:AddTimerLine(DBM:EJ_GetSectionInfo(31445))
 
-local specWarnBBBBlast								= mod:NewSpecialWarningCount(1214607, nil, nil, nil, 2, 2)
-local specWarnBBBBlastTaunt							= mod:NewSpecialWarningTaunt(1214607, nil, nil, nil, 1, 2)
-local specWarnTickTockCanisters						= mod:NewSpecialWarningSoakCount(466342, nil, nil, nil, 2, 2)
-local specWarnEgoCheck								= mod:NewSpecialWarningDefensive(466958, nil, nil, nil, 1, 2)--Ability not seen yet
+local specWarnBBBBlast								= mod:NewSpecialWarningCount(1214607, nil, nil, nil, 2, 2, nil, nil, "bombsoon")
+local specWarnBBBBlastTaunt							= mod:NewSpecialWarningTaunt(1214607, nil, nil, nil, 1, 2, nil, nil, "tauntboss")
+local specWarnTickTockCanisters						= mod:NewSpecialWarningSoakCount(466342, nil, nil, nil, 2, 2, nil, nil, "helpsoak")
+local specWarnEgoCheck								= mod:NewSpecialWarningDefensive(466958, nil, nil, nil, 1, 2, nil, nil, "defensive")--Ability not seen yet
 
 local timerBBBBlastCD								= mod:NewCDCountTimer(97.3, 1214607, nil, nil, nil, 3)
 local timerOverloadedRocketsCD						= mod:NewCDCountTimer(11.5, 1214755, nil, nil, nil, 5)
@@ -121,11 +121,11 @@ local warnDischargedGigaBomb						= mod:NewTargetNoFilterAnnounce(1218992, 2)
 local warnAutoLockingCuffBomb						= mod:NewTargetNoFilterAnnounce(1220784, 4)
 local warnMayhemRockets								= mod:NewCountAnnounce(1218696, 2)
 
-local specWarnCombinationCanisters					= mod:NewSpecialWarningSoakCount(1217987, nil, nil, nil, 2, 2, 4)
-local specWarnScatterbombCanisters					= mod:NewSpecialWarningSoakCount(1218488, nil, nil, nil, 2, 2, 4)
-local specWarnStaticZap								= mod:NewSpecialWarningInterruptCount(1219041, "HasInterrupt", nil, nil, 1, 2)
+local specWarnCombinationCanisters					= mod:NewSpecialWarningSoakCount(1217987, nil, nil, nil, 2, 2, 4, nil, "helpsoak")
+local specWarnScatterbombCanisters					= mod:NewSpecialWarningSoakCount(1218488, nil, nil, nil, 2, 2, 4, nil, "helpsoak")
+local specWarnStaticZap								= mod:NewSpecialWarningInterruptCount(1219041, "HasInterrupt", nil, nil, 1, 2, nil, nil, "kick2r")
 local specWarnIonizationDispel						= mod:NewSpecialWarningDispel(1219039, "RemoveMagic", nil, nil, 1, 2)
-local specWarnBBBBarrage							= mod:NewSpecialWarningCount(1218546, nil, nil, nil, 2, 2)
+local specWarnBBBBarrage							= mod:NewSpecialWarningCount(1218546, nil, nil, nil, 2, 2, nil, nil, "bombsoon")
 
 local timerCombinationCanistersCD					= mod:NewCDCountTimer(97.3, 1217987, nil, nil, nil, 3, nil, DBM_COMMON_L.MYTHIC_ICON)
 local timerScatterbombCanistersCD					= mod:NewCDCountTimer(97.3, 1218488, nil, nil, nil, 3, nil, DBM_COMMON_L.MYTHIC_ICON)

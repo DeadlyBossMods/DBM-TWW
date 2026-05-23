@@ -41,13 +41,13 @@ local warnSorted									= mod:NewTargetCountAnnounce(465346, 3, nil, nil, nil, 
 local warnInfectedbite								= mod:NewCountAnnounce(466748, 4, nil, nil, DBM_CORE_L.AUTO_ANNOUNCE_OPTIONS.stack:format(466748))--Player
 local warnRollingRubbish							= mod:NewCountAnnounce(461536, 1, nil, nil, DBM_CORE_L.AUTO_ANNOUNCE_OPTIONS.stack:format(461536), nil, nil, 2)--Player
 
-local specWarnElectroSorting						= mod:NewSpecialWarningCount(464399, nil, nil, DBM_COMMON_L.BALLS.. "+" ..DBM_COMMON_L.ADDS, 2, 2)
-local specWarnSorted								= mod:NewSpecialWarningYou(461536, nil, nil, nil, 1, 2)--Pre target debuff for Rolling Rubbish
+local specWarnElectroSorting						= mod:NewSpecialWarningCount(464399, nil, nil, DBM_COMMON_L.BALLS.. "+" ..DBM_COMMON_L.ADDS, 2, 2, nil, nil, "specialsoon")
+local specWarnSorted								= mod:NewSpecialWarningYou(461536, nil, nil, nil, 1, 2, nil, nil, "targetyou")--Pre target debuff for Rolling Rubbish
 local yellSorted									= mod:NewShortPosYell(461536)
 local yellSortedFades								= mod:NewIconFadesYell(461536)
-local specWarnSortedTaunt							= mod:NewSpecialWarningTaunt(461536, nil, nil, nil, 1, 2)
-local specWarnPowercoil								= mod:NewSpecialWarningYou(1218704, nil, nil, nil, 1, 2, 4)
-local specWarnGTFO									= mod:NewSpecialWarningGTFO(464854, nil, nil, nil, 1, 8)
+local specWarnSortedTaunt							= mod:NewSpecialWarningTaunt(461536, nil, nil, nil, 1, 2, nil, nil, "tauntboss")
+local specWarnPowercoil								= mod:NewSpecialWarningYou(1218704, nil, nil, nil, 1, 2, 4, nil, "targetyou")
+local specWarnGTFO									= mod:NewSpecialWarningGTFO(464854, nil, nil, nil, 1, 8, nil, nil, "watchfeet")
 
 local timerElectroSortingCD							= mod:NewNextCountTimer(51.1, 464399, DBM_COMMON_L.BALLS.. "+" ..DBM_COMMON_L.ADDS.." (%s)", nil, nil, 2)
 local timerRollingPlayer							= mod:NewBuffFadesTimer(20, 461536, nil, nil, nil, 5, nil, nil, nil, 1, 5)
@@ -65,20 +65,20 @@ mod:AddTimerLine(DBM:EJ_GetSectionInfo(30533))
 local warnDumpsterDive								= mod:NewCastAnnounce(466742, 4)--Spammy without way to scope it to specific target
 local warnMarkedForRecycling						= mod:NewTargetNoFilterAnnounce(1220648, 4, nil, false, 2)
 
-local specWarnScrapRockets							= mod:NewSpecialWarningInterruptCount(1219384, "HasInterrupt", nil, nil, 1, 2)
-local specWarnMarkedForRecycling					= mod:NewSpecialWarningYou(1220648, nil, nil, nil, 3, 2)
+local specWarnScrapRockets							= mod:NewSpecialWarningInterruptCount(1219384, "HasInterrupt", nil, nil, 1, 2, nil, nil, "kick2r")
+local specWarnMarkedForRecycling					= mod:NewSpecialWarningYou(1220648, nil, nil, nil, 3, 2, nil, nil, "targetyou")
 
 --local timerDumpsterDiveCD							= mod:NewCDNPTimer(10.9, 466742, nil, nil, nil, 3)--10.9-24.4
 --local timerRecyclerCD								= mod:NewCDNPTimer(97.3, 1220752, nil, nil, nil, 3)
 local timerRecyclerCast								= mod:NewCastNPTimer(14, 1220752, nil, nil, nil, 3, nil, DBM_COMMON_L.DEADLY_ICON)
 --Rest of Boss mechanics
 mod:AddTimerLine(DBM_COMMON_L.BOSS)
-local specWarnIncinerator							= mod:NewSpecialWarningMoveAwayCount(464149, nil, nil, nil, 2, 2)--Debuff is 472893 but we pre warn first
-local specWarnIncineratorVictim						= mod:NewSpecialWarningYou(472893, nil, nil, nil, 1, 17)
+local specWarnIncinerator							= mod:NewSpecialWarningMoveAwayCount(464149, nil, nil, nil, 2, 2, nil, nil, "scatter")--Debuff is 472893 but we pre warn first
+local specWarnIncineratorVictim						= mod:NewSpecialWarningYou(472893, nil, nil, nil, 1, 17, nil, nil, "debuffyou")
 --local yellIncinerator								= mod:NewShortYell(464149)--Spammy
-local specWarnDemolish								= mod:NewSpecialWarningDefensive(464112, nil, nil, nil, 1, 2)
-local specWarnMeltdown								= mod:NewSpecialWarningDefensive(1217954, nil, nil, nil, 1, 2)
-local specWarnTrashCompactor						= mod:NewSpecialWarningDodge(467135, nil, nil, nil, 2, 2)
+local specWarnDemolish								= mod:NewSpecialWarningDefensive(464112, nil, nil, nil, 1, 2, nil, nil, "defensive")
+local specWarnMeltdown								= mod:NewSpecialWarningDefensive(1217954, nil, nil, nil, 1, 2, nil, nil, "defensive")
+local specWarnTrashCompactor						= mod:NewSpecialWarningDodge(467135, nil, nil, nil, 2, 2, nil, nil, "watchstep")
 
 local timerIncineratorCD							= mod:NewNextCountTimer(25.5, 464149, nil, nil, nil, 3)
 local timerDemolishCD								= mod:NewNextCountTimer(51.1, 464112, nil, "Tank|Healer", nil, 5, nil, DBM_COMMON_L.TANK_ICON)

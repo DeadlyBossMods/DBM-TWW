@@ -33,12 +33,12 @@ local warnSpinneretsStrands						= mod:NewIncomingCountAnnounce(439784, 3)--Gene
 local warnErosiveSpray							= mod:NewCountAnnounce(439811, 2, nil, nil, 123121)--Shortname "Spray"
 local warnAcidEruption							= mod:NewCastAnnounce(452806, 4)
 
-local specWarnSavageAssault						= mod:NewSpecialWarningDefensive(444687, nil, nil, nil, 1, 2)
-local specWarnSavageAssaultTaunt				= mod:NewSpecialWarningTaunt(444687, nil, nil, nil, 1, 2)
-local specWarnWebReave							= mod:NewSpecialWarningCount(439795, nil, nil, DBM_COMMON_L.GROUPSOAK, 2, 2)
-local specWarnEvellpingWebs						= mod:NewSpecialWarningDodgeCount(454989, nil, 157317, nil, 2, 2)
-local specWarnAcidEruption						= mod:NewSpecialWarningInterrupt(452806, "HasInterrupt", nil, nil, 1, 2)
-local specWarnGTFO								= mod:NewSpecialWarningGTFO(421532, nil, nil, nil, 1, 8)
+local specWarnSavageAssault						= mod:NewSpecialWarningDefensive(444687, nil, nil, nil, 1, 2, nil, nil, "defensive")
+local specWarnSavageAssaultTaunt				= mod:NewSpecialWarningTaunt(444687, nil, nil, nil, 1, 2, nil, nil, "tauntboss")
+local specWarnWebReave							= mod:NewSpecialWarningCount(439795, nil, nil, DBM_COMMON_L.GROUPSOAK, 2, 2, nil, nil, "gathershare")
+local specWarnEvellpingWebs						= mod:NewSpecialWarningDodgeCount(454989, nil, 157317, nil, 2, 2, nil, nil, "watchstep")
+local specWarnAcidEruption						= mod:NewSpecialWarningInterrupt(452806, "HasInterrupt", nil, nil, 1, 2, nil, nil, "kickcast")
+local specWarnGTFO								= mod:NewSpecialWarningGTFO(421532, nil, nil, nil, 1, 8, nil, nil, "watchfeet")
 
 local timerSavageAssaultCD						= mod:NewCDCountTimer(49, 444687, DBM_COMMON_L.TANKDEBUFF.." (%s)", "Tank|Healer", nil, 5, nil, DBM_COMMON_L.TANK_ICON)
 local timerRollingAcidCD						= mod:NewCDCountTimer(21.3, 439789, 437704, nil, nil, 3)--Shortname "Toxic Waves"

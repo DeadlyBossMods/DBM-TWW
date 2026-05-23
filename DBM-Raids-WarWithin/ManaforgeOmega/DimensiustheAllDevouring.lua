@@ -32,10 +32,10 @@ ability.id = 1234898 and type = "begincast" or ability.id = 1245292 and type = "
 local warnPhase										= mod:NewPhaseChangeAnnounce(2, nil, nil, nil, nil, nil, 2)
 --Stage One: Critical Mass
 mod:AddTimerLine(DBM:EJ_GetSectionInfo(32292))
-local specWarnMassiveSmash							= mod:NewSpecialWarningCount(1230087, nil, 212336, nil, 2, 2)
-local specWarnDarkMatter							= mod:NewSpecialWarningMoveAwayCount(1230979, nil, nil, nil, 1, 2)
-local specWarnShatteredSpace						= mod:NewSpecialWarningDodgeCount(1243690, nil, nil, nil, 2, 2)
-local specWarnDevourP1								= mod:NewSpecialWarningCount(1229038, nil, nil, nil, 3, 2)
+local specWarnMassiveSmash							= mod:NewSpecialWarningCount(1230087, nil, 212336, nil, 2, 2, nil, nil, "carefly")
+local specWarnDarkMatter							= mod:NewSpecialWarningMoveAwayCount(1230979, nil, nil, nil, 1, 2, nil, nil, "scatter")
+local specWarnShatteredSpace						= mod:NewSpecialWarningDodgeCount(1243690, nil, nil, nil, 2, 2, nil, nil, "aesoon")
+local specWarnDevourP1								= mod:NewSpecialWarningCount(1229038, nil, nil, nil, 3, 2, nil, nil, "gather")
 
 local timerMassiveSmashCD							= mod:NewCDCountTimer(97.3, 1230087, 212336, nil, nil, 2)--Shortname "Smash"
 --local timerInfinitePossibilities					= mod:NewCastNPTimer(8, 1248240, nil, nil, nil, 5)
@@ -49,8 +49,8 @@ mod:AddTimerLine(DBM:EJ_GetSectionInfo(32477))
 --local warnInverseGravityFaded						= mod:NewFadesAnnounce(1234244, 1)
 local warnGravitationalDistortion					= mod:NewCountAnnounce(1234242, 2)
 
-local specWarnExtinction							= mod:NewSpecialWarningDodgeCount(1238765, nil, nil, nil, 3, 2)
-local specWarnGammaBurst							= mod:NewSpecialWarningCount(1237319, nil, nil, DBM_COMMON_L.PUSHBACK, 2, 13)
+local specWarnExtinction							= mod:NewSpecialWarningDodgeCount(1238765, nil, nil, nil, 3, 2, nil, nil, "aesoon")
+local specWarnGammaBurst							= mod:NewSpecialWarningCount(1237319, nil, nil, DBM_COMMON_L.PUSHBACK, 2, 13, nil, nil, "pushbackincoming")
 --local specWarnCrushingGravity						= mod:NewSpecialWarningYou(1234243, nil, nil, nil, 1, 2, 4)
 --local specWarnInverseGravity						= mod:NewSpecialWarningYou(1234244, nil, nil, nil, 1, 2, 4)
 
@@ -62,9 +62,9 @@ local timerGravitationalDistortionCD				= mod:NewCDCountTimer(97.3, 1234242, nil
 mod:AddTimerLine(DBM:EJ_GetSectionInfo(32738))
 
 --local specWarnMassEjection						= mod:NewSpecialWarningDodgeCount(1237694, nil, nil, nil, 2, 15)
-local specWarnConquerorsCross						= mod:NewSpecialWarningSwitchCount(1239262, "-Healer", nil, DBM_COMMON_L.ADDS, 1, 2)
-local specWarnStardustNova							= mod:NewSpecialWarningDodgeCount(1237695, nil, 142775, nil, 2, 2)
-local specWarnStarshardNova							= mod:NewSpecialWarningDodgeCount(1249454, nil, 142775, nil, 2, 2, 4)--Mythic version of above
+local specWarnConquerorsCross						= mod:NewSpecialWarningSwitchCount(1239262, "-Healer", nil, DBM_COMMON_L.ADDS, 1, 2, nil, nil, "mobsoon")
+local specWarnStardustNova							= mod:NewSpecialWarningDodgeCount(1237695, nil, 142775, nil, 2, 2, nil, nil, "watchstep")
+local specWarnStarshardNova							= mod:NewSpecialWarningDodgeCount(1249454, nil, 142775, nil, 2, 2, 4, nil, "watchstep")--Mythic version of above
 
 local timerMassEjectionCD							= mod:NewCDCountTimer(17.6, 1237694, nil, nil, nil, 3)
 local timerMassDestructionCD						= mod:NewCDCountTimer(97.3, 1249423, nil, nil, nil, 3, nil, DBM_COMMON_L.DEADLY_ICON)--Mythic version of above
@@ -77,9 +77,9 @@ mod:AddTimerLine(DBM:EJ_GetSectionInfo(32479))
 --local warnGravityWell								= mod:NewSpellAnnounce(1232394, 1)--Positive alert during devour
 
 --local specWarnExtinguishTheStars					= mod:NewSpecialWarningDodgeCount(1231716, nil, 62134, nil, 2, 2)--shortname "Stars"
-local specWarnDarkenedSky							= mod:NewSpecialWarningDodgeCount(1234052, nil, nil, DBM_COMMON_L.RINGS, 2, 2)
-local specWarnCosmicCollapse						= mod:NewSpecialWarningDefensive(1234263, nil, 298160, nil, 2, 2)
-local specWarnSuperNova								= mod:NewSpecialWarningRunCount(1232973, nil, nil, nil, 4, 2)
+local specWarnDarkenedSky							= mod:NewSpecialWarningDodgeCount(1234052, nil, nil, DBM_COMMON_L.RINGS, 2, 2, nil, nil, "watchstep")
+local specWarnCosmicCollapse						= mod:NewSpecialWarningDefensive(1234263, nil, 298160, nil, 2, 2, nil, nil, "defensive")
+local specWarnSuperNova								= mod:NewSpecialWarningRunCount(1232973, nil, nil, nil, 4, 2, nil, nil, "runout")
 --local specWarnVoidgrasp								= mod:NewSpecialWarningYouCount(1250055, nil, nil, nil, 1, 2)
 
 --local timerExtinguishTheStarsCD						= mod:NewCDTimer(97.3, 1231716, 62134, nil, nil, 3)--shortname "Stars"

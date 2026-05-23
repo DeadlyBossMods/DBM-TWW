@@ -22,9 +22,9 @@ mod:RegisterEventsInCombat(
 
 local warnBombfield				= mod:NewSpellAnnounce(1216505, 3)
 
-local specWarnDeathFromAbove	= mod:NewSpecialWarningDodge(1216709, nil, nil, nil, 2, 2)
-local specWarnToxicMechanic		= mod:NewSpecialWarningSpell(1216812, nil, nil, nil, 2, 2)
-local specWarnFlamingFlames		= mod:NewSpecialWarningDodge(1216687, nil, nil, nil, 2, 2)
+local specWarnDeathFromAbove	= mod:NewSpecialWarningDodge(1216709, nil, nil, nil, 2, 2, nil, nil, "watchstep")
+local specWarnToxicMechanic		= mod:NewSpecialWarningSpell(1216812, nil, nil, nil, 2, 2, nil, nil, "carefly")
+local specWarnFlamingFlames		= mod:NewSpecialWarningDodge(1216687, nil, nil, nil, 2, 2, nil, nil, "frontal")
 
 local timerBombfieldCD			= mod:NewAITimer(32.7, 1216505, nil, nil, nil, 1)
 local timerDeathFromAboveCD		= mod:NewAITimer(32.7, 1216709, nil, nil, nil, 3)

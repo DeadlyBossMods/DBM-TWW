@@ -36,16 +36,16 @@ local warnVenomLash								= mod:NewCountAnnounce(435136, 3)
 local warnDigestiveAcid							= mod:NewTargetAnnounce(435138, 3)
 local warnHungeringBelows						= mod:NewCountAnnounce(438012, 3)
 
-local specWarnCarnivorousContest				= mod:NewSpecialWarningMoveTo(434803, nil, nil, DBM_COMMON_L.GROUPSOAK, 2, 2)
-local specWarnCarnivorousContestTarget			= mod:NewSpecialWarningYou(434803, nil, nil, DBM_COMMON_L.GROUPSOAK, 1, 2)
+local specWarnCarnivorousContest				= mod:NewSpecialWarningMoveTo(434803, nil, nil, DBM_COMMON_L.GROUPSOAK, 2, 2, nil, nil, "sharetwo")
+local specWarnCarnivorousContestTarget			= mod:NewSpecialWarningYou(434803, nil, nil, DBM_COMMON_L.GROUPSOAK, 1, 2, nil, nil, "runout")
 local yellCarnivorousContest					= mod:NewShortYell(434803, DBM_COMMON_L.GROUPSOAK, nil, nil, "YELL")
 local yellCarnivorousContestFades				= mod:NewShortFadesYell(434803, nil, nil, nil, "YELL")
-local specWarnStalkersWebbing					= mod:NewSpecialWarningDodgeCount(441452, nil, 157317, nil, 2, 2)--aka Viscous Slobber apparently
-local specWarnDigestiveAcid						= mod:NewSpecialWarningMoveTo(435138, nil, nil, nil, 1, 17)
+local specWarnStalkersWebbing					= mod:NewSpecialWarningDodgeCount(441452, nil, 157317, nil, 2, 2, nil, nil, "watchstep")--aka Viscous Slobber apparently
+local specWarnDigestiveAcid						= mod:NewSpecialWarningMoveTo(435138, nil, nil, nil, 1, 17, nil, nil, "movetoweb")
 local yellDigestiveAcid							= mod:NewShortYell(435138)
 local yellDigestiveAcidFades					= mod:NewShortFadesYell(435138)
-local specWarnBrutalCrush						= mod:NewSpecialWarningDefensive(434697, nil, nil, nil, 1, 2)
-local specWarnTenderized						= mod:NewSpecialWarningTaunt(434705, nil, nil, nil, 1, 2)
+local specWarnBrutalCrush						= mod:NewSpecialWarningDefensive(434697, nil, nil, nil, 1, 2, nil, nil, "defensive")
+local specWarnTenderized						= mod:NewSpecialWarningTaunt(434705, nil, nil, nil, 1, 2, nil, nil, "tauntboss")
 
 local timerCarnivorousContestCD					= mod:NewCDCountTimer(36.0, 434803, DBM_COMMON_L.GROUPSOAK.." (%s)", nil, nil, 3)
 local timerStalkersWebbingCD					= mod:NewCDCountTimer(49, 441452, 157317, nil, nil, 3)--Shortname "Webs"
@@ -58,9 +58,9 @@ local berserkTimer								= mod:NewBerserkTimer(600)
 mod:AddTimerLine(DBM:EJ_GetSectionInfo(28845))
 local warnJuggernautCharge						= mod:NewCountAnnounce(436200, 4, nil, nil, 100, nil, nil, 2)--Charges 2+ of the set
 
-local specWarnChitteringSwarm					= mod:NewSpecialWarningSwitch(445052, nil, 310414, nil, 1, 2)
-local specWarnSwallowingDarkness				= mod:NewSpecialWarningDodge(443842, nil, nil, nil, 2, 2)
-local specWarnHulkingCrash						= mod:NewSpecialWarningDodge(445123, nil, 298588, nil, 2, 2)--Shortname "Crash"
+local specWarnChitteringSwarm					= mod:NewSpecialWarningSwitch(445052, nil, 310414, nil, 1, 2, nil, nil, "killmob")
+local specWarnSwallowingDarkness				= mod:NewSpecialWarningDodge(443842, nil, nil, nil, 2, 2, nil, nil, "watchstep")
+local specWarnHulkingCrash						= mod:NewSpecialWarningDodge(445123, nil, 298588, nil, 2, 2, nil, nil, "watchstep")--Shortname "Crash"
 
 local timerChitteringSwarmCD					= mod:NewCDTimer(49, 445052, 310414, nil, nil, 1)--Shortname "Swarm"
 local timerJuggernautChargeCD					= mod:NewCDCountTimer(49, 436200, 100, nil, nil, 3)--Shortname "Charge"

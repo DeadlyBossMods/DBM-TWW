@@ -47,16 +47,16 @@ local warnBanefulShiftFades						= mod:NewFadesAnnounce(443612, 2)
 local warnCrimsonRain							= mod:NewCountAnnounce(443203, 2)
 local warnGraspFromBeyondFades					= mod:NewFadesAnnounce(443042, 1, nil, nil, 367465, nil, nil, 2)
 
-local specWarnGruesomeDisgorge					= mod:NewSpecialWarningCount(444363, nil, nil, DBM_COMMON_L.FRONTAL, 1, 15)
-local specWarnBanefulShift						= mod:NewSpecialWarningTaunt(443612, nil, nil, nil, 1, 2)
-local specWarnBloodcurdle						= mod:NewSpecialWarningMoveAway(452237, nil, nil, DBM_COMMON_L.SPREADS, 1, 2, 4)
+local specWarnGruesomeDisgorge					= mod:NewSpecialWarningCount(444363, nil, nil, DBM_COMMON_L.FRONTAL, 1, 15, nil, nil, "frontal")
+local specWarnBanefulShift						= mod:NewSpecialWarningTaunt(443612, nil, nil, nil, 1, 2, nil, nil, "tauntboss")
+local specWarnBloodcurdle						= mod:NewSpecialWarningMoveAway(452237, nil, nil, DBM_COMMON_L.SPREADS, 1, 2, 4, nil, "scatter")
 local yellBloodcurdle							= mod:NewShortYell(452237)
 local yellBloodcurdleFades						= mod:NewShortFadesYell(452237)
-local specWarnSpewingHemorrhage					= mod:NewSpecialWarningDodgeCount(445936, nil, 207544, nil, 4, 2)
-local specWarnGoresplatter						= mod:NewSpecialWarningRunCount(442530, nil, 301902, nil, 4, 2)
-local specWarnGraspFromBeyond					= mod:NewSpecialWarningMoveAway(443042, nil, 367465, nil, 1, 2)
+local specWarnSpewingHemorrhage					= mod:NewSpecialWarningDodgeCount(445936, nil, 207544, nil, 4, 2, nil, nil, "farfromline")
+local specWarnGoresplatter						= mod:NewSpecialWarningRunCount(442530, nil, 301902, nil, 4, 2, nil, nil, "justrun")
+local specWarnGraspFromBeyond					= mod:NewSpecialWarningMoveAway(443042, nil, 367465, nil, 1, 2, nil, nil, "runout")
 local yellGraspFromBeyond						= mod:NewShortYell(443042, 285205)--ShortYell "Tentacle"
-local specWarnGTFO								= mod:NewSpecialWarningGTFO(445518, nil, nil, nil, 1, 8)
+local specWarnGTFO								= mod:NewSpecialWarningGTFO(445518, nil, nil, nil, 1, 8, nil, nil, "watchfeet")
 
 local timerGruesomeDigorgeCD					= mod:NewNextCountTimer(49, 444363, DBM_COMMON_L.FRONTAL.." (%s)", nil, nil, 5, nil, DBM_COMMON_L.TANK_ICON)
 local timerBanefulShift							= mod:NewBuffFadesTimer(40, 443612, nil, nil, nil, 5)
@@ -70,8 +70,8 @@ mod:AddTimerLine(DBM:GetSpellName(462306))
 local warnManifestHorror						= mod:NewCastAnnounce(445174, 4, nil, nil, false, 2)--Spammy, opt in
 local warnBloodPact								= mod:NewStackAnnounce(445272, 2)
 
-local specWarnBlackBulwark						= mod:NewSpecialWarningInterruptCount(451288, "HasInterrupt", 151702, nil, 1, 2)
-local specWarnSpectralSlam						= mod:NewSpecialWarningDefensive(445016, nil, 182557, nil, 1, 2)
+local specWarnBlackBulwark						= mod:NewSpecialWarningInterruptCount(451288, "HasInterrupt", 151702, nil, 1, 2, nil, nil, "kickcast")
+local specWarnSpectralSlam						= mod:NewSpecialWarningDefensive(445016, nil, 182557, nil, 1, 2, nil, nil, "defensive")
 
 --These timers have large variations, especially when tanks outrange them or when they live through multiple groups phasing in
 local timerBlackBulwarkCD						= mod:NewCDNPTimer(15.5, 451288, 151702, nil, nil, 4, nil, DBM_COMMON_L.INTERRUPT_ICON)--Nameplate only timer Shortname "Shield"

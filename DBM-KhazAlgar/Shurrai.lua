@@ -24,8 +24,8 @@ local warnBrinyVomit				= mod:NewSpellAnnounce(453733, 3)
 local warnDarkTide					= mod:NewCastAnnounce(455275, 3)
 local warnRegurgitateSouls			= mod:NewSpellAnnounce(453875, 3)
 
-local specWarnAbyssalStrike			= mod:NewSpecialWarningDefensive(453607, nil, nil, nil, 1, 2)
-local specWarnAbyssalStrikeTaunt	= mod:NewSpecialWarningTaunt(453607, nil, nil, nil, 1, 2)
+local specWarnAbyssalStrike			= mod:NewSpecialWarningDefensive(453607, nil, nil, nil, 1, 2, nil, nil, "defensive")
+local specWarnAbyssalStrikeTaunt	= mod:NewSpecialWarningTaunt(453607, nil, nil, nil, 1, 2, nil, nil, "tauntboss")
 local specWarnOceansReckoning		= mod:NewSpecialWarningDispel(453871, "Disease", nil, nil, 1, 2)
 
 local timerTectonicRoarCD			= mod:NewAITimer(32.7, 453607, nil, "Tank|Healer", nil, 5, nil, DBM_COMMON_L.TANK_ICON)

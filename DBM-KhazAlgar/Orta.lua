@@ -24,8 +24,8 @@ mod:RegisterEventsInCombat(
 local warnMountainsGrasp			= mod:NewSpellAnnounce(450929, 3)
 local warnDiscardWeaklings			= mod:NewSpellAnnounce(451702, 3)
 
-local specWarnTectonicRoar			= mod:NewSpecialWarningSpell(450454, nil, nil, nil, 2, 2)
-local specWarnColossalSlam			= mod:NewSpecialWarningDodge(450407, nil, nil, nil, 2, 2)
+local specWarnTectonicRoar			= mod:NewSpecialWarningSpell(450454, nil, nil, nil, 2, 2, nil, nil, "carefly")
+local specWarnColossalSlam			= mod:NewSpecialWarningDodge(450407, nil, nil, nil, 2, 2, nil, nil, "shockwave")
 
 local timerTectonicRoarCD			= mod:NewCDTimer(31.8, 450454, nil, nil, nil, 2)
 local timerColossalSlamCD			= mod:NewCDTimer(31.8, 450407, nil, nil, nil, 3)

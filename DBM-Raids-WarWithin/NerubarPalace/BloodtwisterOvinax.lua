@@ -38,15 +38,15 @@ or ability.id = 446700 and type = "begincast"
 --]]
 local warnExperimentalDosage					= mod:NewTargetCountAnnounce(442526, 3, nil, nil, 143340)--Shortname "Injection"
 
-local specWarnExperimentalDosage				= mod:NewSpecialWarningMoveTo(442526, nil, 143340, nil, 1, 2)--Shortname "Injection"
+local specWarnExperimentalDosage				= mod:NewSpecialWarningMoveTo(442526, nil, 143340, nil, 1, 2, nil, nil, "movetoegg")--Shortname "Injection"
 local yellxperimentalDosage						= mod:NewShortPosYell(442526, 19873)--Shortname "Destroy Egg" (This name is NOT injected into shortnames api)
 local yellxperimentalDosageFades				= mod:NewIconFadesYell(442526, 19873)--Shortname "Destroy Egg" (This name is NOT injected into shortnames api)
-local specWarnIngestBlackBlood					= mod:NewSpecialWarningCount(442432, nil, 325225, nil, 2, 2)--Shortname "Container Breach"
-local specWarnUnstableWeb						= mod:NewSpecialWarningMoveAway(446349, nil, 389280, nil, 1, 2)--Shortname "Web"
+local specWarnIngestBlackBlood					= mod:NewSpecialWarningCount(442432, nil, 325225, nil, 2, 2, nil, nil, "specialsoon")--Shortname "Container Breach"
+local specWarnUnstableWeb						= mod:NewSpecialWarningMoveAway(446349, nil, 389280, nil, 1, 2, nil, nil, "runout")--Shortname "Web"
 local yellUnstableWeb							= mod:NewShortYell(446349, 389280)
-local specWarnVolatileConcoction				= mod:NewSpecialWarningDefensive(441362, nil, nil, nil, 1, 2)
-local specWarnVolatileConcoctionTaunt			= mod:NewSpecialWarningTaunt(441362, nil, nil, nil, 1, 2)
-local specWarnGTFO								= mod:NewSpecialWarningGTFO(442799, nil, nil, nil, 1, 8)
+local specWarnVolatileConcoction				= mod:NewSpecialWarningDefensive(441362, nil, nil, nil, 1, 2, nil, nil, "defensive")
+local specWarnVolatileConcoctionTaunt			= mod:NewSpecialWarningTaunt(441362, nil, nil, nil, 1, 2, nil, nil, "tauntboss")
+local specWarnGTFO								= mod:NewSpecialWarningGTFO(442799, nil, nil, nil, 1, 8, nil, nil, "watchfeet")
 
 local timerExperimentalDosageCD					= mod:NewCDCountTimer(50, 442526, 143340, nil, nil, 3)--Shortname "Injection"
 local timerIngestBlackBloodCD					= mod:NewCDCountTimer(166.4, 442432, 325225, nil, nil, 3)--Shortname "Container Breach" (167-171 based on delaying boss casts by position)
@@ -57,7 +57,7 @@ mod:AddSetIconOption("SetIconOnEggBreaker", 442526, true, 10, {6, 4, 3, 7, 1, 2}
 mod:AddDropdownOption("EggBreakerBehavior", {"MatchBW", "UseAllAscending", "AvoidRedNPurple", "DisableIconsForRaid", "DisableAllForRaid"}, "MatchBW", "misc", nil, 442526)
 --Colossal Spider
 mod:AddTimerLine(DBM:EJ_GetSectionInfo(28996))
-local specWarnPoisonBurst						= mod:NewSpecialWarningInterrupt(446700, "HasInterrupt", nil, nil, 1, 2)
+local specWarnPoisonBurst						= mod:NewSpecialWarningInterrupt(446700, "HasInterrupt", nil, nil, 1, 2, nil, nil, "kickcast")
 
 mod:AddNamePlateOption("NPAuraOnNecrotic2", 446694, false)
 --Voracious Worm
@@ -67,7 +67,7 @@ mod:AddNamePlateOption("NPAuraOnRavenous2", 446690, false)
 mod:AddSetIconOption("SetIconOnWorm", -28999, false, 5, {8, 7, 6, 5})
 --Blood Parasite
 mod:AddTimerLine(DBM:EJ_GetSectionInfo(29003))
-local specWarnFixate							= mod:NewSpecialWarningYou(442250, nil, nil, nil, 1, 2)
+local specWarnFixate							= mod:NewSpecialWarningYou(442250, nil, nil, nil, 1, 2, nil, nil, "targetyou")
 
 mod:AddNamePlateOption("NPAuraOnAccelerated2", 442263, false)
 mod:AddNamePlateOption("NPFixate", 442250, true)

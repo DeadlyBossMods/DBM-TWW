@@ -37,14 +37,14 @@ mod:AddTimerLine(DBM:EJ_GetSectionInfo(30093))
 local warnSpewOil									= mod:NewIncomingCountAnnounce(459678, 2)
 local warnIncendiaryFire							= mod:NewIncomingCountAnnounce(468207, 2)
 
-local specWarnUnrelentingcarnage					= mod:NewSpecialWarningSpell(471403, nil, nil, nil, 2, 2)
-local specWarnCallbikers							= mod:NewSpecialWarningSwitchCount(459943, "Dps", nil, nil, 1, 2)
-local specWarnBombVoyage							= mod:NewSpecialWarningDodgeCount(459978, false, nil, 2, 2, 2)--evert 8 seconds (4 on mythic) so off by default
-local specWarnTankBuster							= mod:NewSpecialWarningDefensive(465865, nil, nil, nil, 1, 2)
-local specWarnTankBusterTaunt						= mod:NewSpecialWarningTaunt(465865, nil, nil, nil, 1, 2)
-local specWarnIncendiaryFire						= mod:NewSpecialWarningYou(468216, nil, nil, nil, 1, 12)--For some reason, blizzard gave a spell that has a 6 second pre debuff, an additional 4 second pre pre debuff private aura
+local specWarnUnrelentingcarnage					= mod:NewSpecialWarningSpell(471403, nil, nil, nil, 2, 2, nil, nil, "aesoon")
+local specWarnCallbikers							= mod:NewSpecialWarningSwitchCount(459943, "Dps", nil, nil, 1, 2, nil, nil, "killmob")
+local specWarnBombVoyage							= mod:NewSpecialWarningDodgeCount(459978, false, nil, 2, 2, 2, nil, nil, "watchstep")--evert 8 seconds (4 on mythic) so off by default
+local specWarnTankBuster							= mod:NewSpecialWarningDefensive(465865, nil, nil, nil, 1, 2, nil, nil, "defensive")
+local specWarnTankBusterTaunt						= mod:NewSpecialWarningTaunt(465865, nil, nil, nil, 1, 2, nil, nil, "tauntboss")
+local specWarnIncendiaryFire						= mod:NewSpecialWarningYou(468216, nil, nil, nil, 1, 12, nil, nil, "flameyou")--For some reason, blizzard gave a spell that has a 6 second pre debuff, an additional 4 second pre pre debuff private aura
 local yellIncendiaryFire							= mod:NewShortYell(468216)
-local specWarnGTFO									= mod:NewSpecialWarningGTFO(459683, nil, nil, nil, 1, 8)
+local specWarnGTFO									= mod:NewSpecialWarningGTFO(459683, nil, nil, nil, 1, 8, nil, nil, "watchfeet")
 
 local timerUnrelentingcarnageCD						= mod:NewCDCountTimer(97.3, 471403, nil, nil, nil, 2, nil, DBM_COMMON_L.DEADLY_ICON)
 local timerCallbikersCD								= mod:NewCDCountTimer(28.1, 459943, nil, nil, nil, 1, nil, DBM_COMMON_L.DAMAGE_ICON)
@@ -58,15 +58,15 @@ mod:AddPrivateAuraSoundOption(468486, true, 468207, 2, 1, "flameyou", 12)--Incen
 mod:AddTimerLine(DBM:EJ_GetSectionInfo(30118))
 local warnBlazeofGlory								= mod:NewCastAnnounce(466040, 2)
 
-local specWarnOilCanisterSoak						= mod:NewSpecialWarningSoakCount(1216731, nil, nil, nil, 2, 2, 4)
-local specWarnCarryingOil							= mod:NewSpecialWarningYou(1216788, nil, nil, nil, 1, 2)
-local specWarnHotWheels								= mod:NewSpecialWarningYou(466368, nil, nil, nil, 1, 2)
+local specWarnOilCanisterSoak						= mod:NewSpecialWarningSoakCount(1216731, nil, nil, nil, 2, 2, 4, nil, "helpsoak")
+local specWarnCarryingOil							= mod:NewSpecialWarningYou(1216788, nil, nil, nil, 1, 2, nil, nil, "targetyou")
+local specWarnHotWheels								= mod:NewSpecialWarningYou(466368, nil, nil, nil, 1, 2, nil, nil, "chargemove")
 local yellHotWheels									= mod:NewShortYell(466368)
 --Stage Two: Pit Stop
 mod:AddTimerLine(DBM:EJ_GetSectionInfo(30094))
 
-local specWarnMechanicalBreakdown					= mod:NewSpecialWarningCount(460603, nil, nil, nil, 2, 2)
-local specWarnRepair								= mod:NewSpecialWarningInterruptCount(460173, "HasInterrupt", nil, nil, 1, 2)
+local specWarnMechanicalBreakdown					= mod:NewSpecialWarningCount(460603, nil, nil, nil, 2, 2, nil, nil, "phasechange")
+local specWarnRepair								= mod:NewSpecialWarningInterruptCount(460173, "HasInterrupt", nil, nil, 1, 2, nil, nil, "kickcast")
 
 local timerTuneUp									= mod:NewCastTimer(45, 460116, nil, nil, nil, 6)
 

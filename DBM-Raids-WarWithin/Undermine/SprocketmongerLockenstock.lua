@@ -36,22 +36,22 @@ local warnActivateInventions						= mod:NewCountAnnounce(473276, 2)
 local timerActivateInventionsCD						= mod:NewNextCountTimer(30, 473276, nil, nil, nil, 5)--Change to phase color if it's the phasing spell
 --Goblin Inventions
 mod:AddTimerLine(DBM:EJ_GetSectionInfo(31725))
-local specWarnRocketBarrage							= mod:NewSpecialWarningDodge(1216525, nil, nil, nil, 2, 2)
-local specWarnBlazingbeam							= mod:NewSpecialWarningDodge(1216414, nil, nil, nil, 2, 2)
-local specWarnMegaMagnet							= mod:NewSpecialWarningDodge(1215858, nil, nil, nil, 2, 12)
+local specWarnRocketBarrage							= mod:NewSpecialWarningDodge(1216525, nil, nil, nil, 2, 2, nil, nil, "watchstep")
+local specWarnBlazingbeam							= mod:NewSpecialWarningDodge(1216414, nil, nil, nil, 2, 2, nil, nil, "farfromline")
+local specWarnMegaMagnet							= mod:NewSpecialWarningDodge(1215858, nil, nil, nil, 2, 12, nil, nil, "pullin")
 --Empowered Inventions
 mod:AddTimerLine(DBM:EJ_GetSectionInfo(31726))
-local specWarnVoidLaser								= mod:NewSpecialWarningDodge(1216674, nil, nil, nil, 2, 2)
-local specWarnVoidBarrage							= mod:NewSpecialWarningDodge(1216699, nil, nil, nil, 2, 2)
+local specWarnVoidLaser								= mod:NewSpecialWarningDodge(1216674, nil, nil, nil, 2, 2, nil, nil, "farfromline")
+local specWarnVoidBarrage							= mod:NewSpecialWarningDodge(1216699, nil, nil, nil, 2, 2, nil, nil, "watchstep")
 ----Polarization Generator
 mod:AddTimerLine(DBM:GetSpellName(1216802))
 local warnPolarizationGenerator						= mod:NewIncomingCountAnnounce(1216802, 3)
 local warnNegativeRemoved							= mod:NewFadesAnnounce(1216934, 1)
 local warnPositiveRemoved							= mod:NewFadesAnnounce(1216911, 1)
 
-local specWarnNegative								= mod:NewSpecialWarningYou(1216934, nil, nil, nil, 1, 13, 4)
-local specWarnPositive								= mod:NewSpecialWarningYou(1216911, nil, nil, nil, 1, 13, 4)
-local specWarnPolGen								= mod:NewSpecialWarning("specWarnPolGen", nil, nil, nil, 1, 13, 4, nil, 1216802)
+local specWarnNegative								= mod:NewSpecialWarningYou(1216934, nil, nil, nil, 1, 13, 4, nil, "negative")
+local specWarnPositive								= mod:NewSpecialWarningYou(1216911, nil, nil, nil, 1, 13, 4, nil, "positive")
+local specWarnPolGen								= mod:NewSpecialWarning("specWarnPolGen", nil, nil, nil, 1, 13, 4, nil, 1216802, nil, "negative")
 
 local timerPolarizationGeneratorCD					= mod:NewNextCountTimer(97.3, 1216802, nil, nil, nil, 2, nil, DBM_COMMON_L.MYTHIC_ICON)
 --Main Boss
@@ -63,14 +63,14 @@ local warnSonicBoom									= mod:NewCountAnnounce(465232, 2, nil, "Healer")
 --local warnFirecrackerTrap							= mod:NewSpellAnnounce(471308, 2)
 local warnGunkStacks								= mod:NewStackAnnounce(465917, 2, nil, "Tank|Healer")
 
-local specWarnFootBlasters							= mod:NewSpecialWarningCount(1217231, nil, nil, nil, 2, 2)
-local specWarnUnstableShrapnel						= mod:NewSpecialWarningYou(1218342, nil, nil, nil, 1, 17)
-local specWarnWireTransfer							= mod:NewSpecialWarningDodgeCount(1218418, nil, nil, nil, 2, 2)
-local specWarnScrewUp								= mod:NewSpecialWarningRun(1216509, nil, nil, nil, 4, 2)
+local specWarnFootBlasters							= mod:NewSpecialWarningCount(1217231, nil, nil, nil, 2, 2, nil, nil, "bombsoon")
+local specWarnUnstableShrapnel						= mod:NewSpecialWarningYou(1218342, nil, nil, nil, 1, 17, nil, nil, "debuffyou")
+local specWarnWireTransfer							= mod:NewSpecialWarningDodgeCount(1218418, nil, nil, nil, 2, 2, nil, nil, "watchstep")
+local specWarnScrewUp								= mod:NewSpecialWarningRun(1216509, nil, nil, nil, 4, 2, nil, nil, "screwup")
 local yellScrewUp									= mod:NewYell(1216509)
-local specWarnPyroPartyPack							= mod:NewSpecialWarningDefensive(1214878, nil, nil, nil, 1, 2)--Possibly cull or disable by default
-local specWarnPyroPartyPackTaunt					= mod:NewSpecialWarningTaunt(1214878, nil, nil, nil, 1, 2)
-local specWarnPyroPartyPackRunOut					= mod:NewSpecialWarningMoveAway(1214878, nil, nil, nil, 3, 2)
+local specWarnPyroPartyPack							= mod:NewSpecialWarningDefensive(1214878, nil, nil, nil, 1, 2, nil, nil, "defensive")--Possibly cull or disable by default
+local specWarnPyroPartyPackTaunt					= mod:NewSpecialWarningTaunt(1214878, nil, nil, nil, 1, 2, nil, nil, "tauntboss")
+local specWarnPyroPartyPackRunOut					= mod:NewSpecialWarningMoveAway(1214878, nil, nil, nil, 3, 2, nil, nil, "runout")
 local yellPyroPartyPack								= mod:NewYell(1214878)
 local yellPyroPartyPackFades						= mod:NewShortFadesYell(1214878)
 --local specWarnGTFO								= mod:NewSpecialWarningGTFO(459785, nil, nil, nil, 1, 8)
@@ -87,7 +87,7 @@ local warnBetaLaunch								= mod:NewSpellAnnounce(466765, 2, nil, nil, nil, nil
 local warnUpgradedBloodTech							= mod:NewStackAnnounce(1218344, 2)
 local warnVoidSplotion								= mod:NewCountAnnounce(1218319, 2)
 
-local specWarnGigaDeath								= mod:NewSpecialWarningSpell(468791, nil, nil, nil, 3, 2)--Berserk
+local specWarnGigaDeath								= mod:NewSpecialWarningSpell(468791, nil, nil, nil, 3, 2, nil, nil, "stilldanger")--Berserk
 
 local timerBetaLaunchCD								= mod:NewNextCountTimer(97.3, 466765, nil, nil, nil, 6)
 local timerGigaDeathCD								= mod:NewNextTimer(97.3, 468791, nil, nil, nil, 2, nil, DBM_COMMON_L.DEADLY_ICON)--Berserk

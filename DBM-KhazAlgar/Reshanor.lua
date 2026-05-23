@@ -19,8 +19,8 @@ mod:RegisterEventsInCombat(
 
 local warnUntetheredRetreat			= mod:NewSpellAnnounce(1237261, 3)
 
-local specWarnTwilightBreath		= mod:NewSpecialWarningDodge(1237905, nil, nil, nil, 2, 2)
-local specWarnVeilshatterRoar		= mod:NewSpecialWarningCast(1237893, "SpellCaster", nil, nil, 2, 2)--CD too messy, 54.9-114
+local specWarnTwilightBreath		= mod:NewSpecialWarningDodge(1237905, nil, nil, nil, 2, 2, nil, nil, "breathsoon")
+local specWarnVeilshatterRoar		= mod:NewSpecialWarningCast(1237893, "SpellCaster", nil, nil, 2, 2, nil, nil, "stopcast")--CD too messy, 54.9-114
 
 local timerTwilightBreathCD			= mod:NewCDTimer(34.8, 1237905, nil, nil, nil, 3)
 local timerUntetheredRetreatCD		= mod:NewCDTimer(111.1, 1237261, nil, nil, nil, 6)

@@ -52,14 +52,14 @@ local warnFlameandCoin								= mod:NewCountAnnounce(464806, 2)
 local warnCoinandShock								= mod:NewCountAnnounce(464809, 2)
 local warnCoinandBomb								= mod:NewCountAnnounce(464810, 3)
 
-local specWarnTokenCoin								= mod:NewSpecialWarningYou(472832, nil, nil, nil, 1, 18)
-local specWarnTokenBomb								= mod:NewSpecialWarningYou(472837, nil, nil, nil, 1, 12)
-local specWarnTokenFlame							= mod:NewSpecialWarningYou(472828, nil, nil, nil, 1, 15)
-local specWarnTokenShock							= mod:NewSpecialWarningYou(472783, nil, nil, nil, 1, 18)
-local specWarnSpintoWin								= mod:NewSpecialWarningCount(461060, nil, nil, nil, 2, 2)
+local specWarnTokenCoin								= mod:NewSpecialWarningYou(472832, nil, nil, nil, 1, 18, nil, nil, "coinyou")
+local specWarnTokenBomb								= mod:NewSpecialWarningYou(472837, nil, nil, nil, 1, 12, nil, nil, "bombyou")
+local specWarnTokenFlame							= mod:NewSpecialWarningYou(472828, nil, nil, nil, 1, 15, nil, nil, "flameyou")
+local specWarnTokenShock							= mod:NewSpecialWarningYou(472783, nil, nil, nil, 1, 18, nil, nil, "shockyou")
+local specWarnSpintoWin								= mod:NewSpecialWarningCount(461060, nil, nil, nil, 2, 2, nil, nil, "phasechange")
 --local specWarnTravelingFlames 					= mod:NewSpecialWarningCount(474731, nil, nil, nil, 2, 2)--No usabe events
-local specWarnExplosiveGaze							= mod:NewSpecialWarningRun(465009, nil, nil, nil, 1, 2)
-local specWarnBurningBlast							= mod:NewSpecialWarningDodge(472178, nil, nil, nil, 2, 2)
+local specWarnExplosiveGaze							= mod:NewSpecialWarningRun(465009, nil, nil, nil, 1, 2, nil, nil, "justrun")
+local specWarnBurningBlast							= mod:NewSpecialWarningDodge(472178, nil, nil, nil, 2, 2, nil, nil, "watchstep")
 --local specWarnCoinMagnet							= mod:NewSpecialWarningSpell(474665, nil, nil, nil, 2, 12)--No event to use for alerting it
 
 local timerSpintoWinCD								= mod:NewVarCountTimer("v60.9-62.1", 461060, nil, nil, nil, 6)
@@ -70,8 +70,8 @@ mod:AddNamePlateOption("NPAuraOnGaze", 465009, true)
 mod:AddTimerLine(DBM:EJ_GetSectionInfo(30085))
 local warnWitheringFlames						= mod:NewTargetNoFilterAnnounce(471927, 2)
 
-local specWarnOverload							= mod:NewSpecialWarningInterruptCount(460582, "HasInterrupt", nil, nil, 1, 2)
-local specWarnWitheringFlames					= mod:NewSpecialWarningMoveAway(471927, nil, nil, nil, 1, 2)
+local specWarnOverload							= mod:NewSpecialWarningInterruptCount(460582, "HasInterrupt", nil, nil, 1, 2, nil, nil, "kick2r")
+local specWarnWitheringFlames					= mod:NewSpecialWarningMoveAway(471927, nil, nil, nil, 1, 2, nil, nil, "runout")
 local yellWitheringFlames						= mod:NewShortYell(471927)
 local yellWitheringFlamesFades					= mod:NewShortFadesYell(471927)
 
@@ -86,11 +86,11 @@ local warnCrushed								= mod:NewTargetNoFilterAnnounce(460430, 4, nil, false, 
 local warnFoulExhaust							= mod:NewCountAnnounce(469993, 2)
 local warnHighRoller							= mod:NewYouAnnounce(460444, 1)
 
-local specWarnPayline							= mod:NewSpecialWarningCount(460181, nil, nil, nil, 2, 2)
-local specWarnBigHit							= mod:NewSpecialWarningDefensive(460472, nil, nil, nil, 1, 2)
-local specWarnBigHitRunOut						= mod:NewSpecialWarningMoveTo(460472, nil, nil, nil, 1, 2)
-local specWarnBigHitTaunt						= mod:NewSpecialWarningTaunt(460472, nil, nil, nil, 1, 2)
-local specWarnGTFO								= mod:NewSpecialWarningGTFO(460576, nil, nil, nil, 1, 8)
+local specWarnPayline							= mod:NewSpecialWarningCount(460181, nil, nil, nil, 2, 2, nil, nil, "specialsoon")
+local specWarnBigHit							= mod:NewSpecialWarningDefensive(460472, nil, nil, nil, 1, 2, nil, nil, "defensive")
+local specWarnBigHitRunOut						= mod:NewSpecialWarningMoveTo(460472, nil, nil, nil, 1, 2, nil, nil, "runtoedge")
+local specWarnBigHitTaunt						= mod:NewSpecialWarningTaunt(460472, nil, nil, nil, 1, 2, nil, nil, "tauntboss")
+local specWarnGTFO								= mod:NewSpecialWarningGTFO(460576, nil, nil, nil, 1, 8, nil, nil, "watchfeet")
 
 local timerPaylineCD							= mod:NewVarCountTimer("v31.6-36.5", 460181, nil, nil, nil, 3)
 local timerFoulExhaustCD						= mod:NewVarCountTimer("v31.6-36.5", 469993, nil, nil, nil, 2, nil, DBM_COMMON_L.HEALER_ICON)
@@ -102,8 +102,8 @@ local warnCheatToWin							= mod:NewCountAnnounce(465309, 4)
 --local warnLinkedMachines						= mod:NewCountAnnounce(465432, 2)--Forst cast
 --local warnExplosiveJackpot					= mod:NewCountAnnounce(465587, 4)--Berserk (Final cast)
 
-local specWarnHotHotHot							= mod:NewSpecialWarningDodge(465322, nil, nil, nil, 2, 2)--Second Cast
-local specWarnScatteredPayout					= mod:NewSpecialWarningSwitch(465580, "Dps", nil, nil, 1, 2)--Third Cast
+local specWarnHotHotHot							= mod:NewSpecialWarningDodge(465322, nil, nil, nil, 2, 2, nil, nil, "farfromline")--Second Cast
+local specWarnScatteredPayout					= mod:NewSpecialWarningSwitch(465580, "Dps", nil, nil, 1, 2, nil, nil, "targetchange")--Third Cast
 
 local timerLinkedMachinesCD						= mod:NewCDCountTimer(25.2, 473195, L.BaitCoil.." %s", nil, nil, 6)
 local timerLinkedMachinesCast					= mod:NewCastTimer(7.5, 465432, 28405, nil, nil, 5)--Shorttext knockback

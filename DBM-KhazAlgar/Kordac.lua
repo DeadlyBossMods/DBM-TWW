@@ -27,12 +27,12 @@ mod:RegisterEventsInCombat(
 --TODO, what kind of warning for Discoard weaklings or grasp?
 local warnSupressionBurst				= mod:NewTargetNoFilterAnnounce(458845, 3)
 
-local specWarnArcaneBombardment			= mod:NewSpecialWarningDodge(458423, nil, nil, nil, 2, 2)
-local specWarnTitanicImpact				= mod:NewSpecialWarningDodge(458320, nil, nil, nil, 2, 2)
-local specWarnOverchargedLasers			= mod:NewSpecialWarningMoveAway(458209, nil, nil, nil, 1, 2)
-local specWarnSupressionBurst			= mod:NewSpecialWarningMoveAway(458845, nil, nil, nil, 1, 2)
+local specWarnArcaneBombardment			= mod:NewSpecialWarningDodge(458423, nil, nil, nil, 2, 2, nil, nil, "watchstep")
+local specWarnTitanicImpact				= mod:NewSpecialWarningDodge(458320, nil, nil, nil, 2, 2, nil, nil, "shockwave")
+local specWarnOverchargedLasers			= mod:NewSpecialWarningMoveAway(458209, nil, nil, nil, 1, 2, nil, nil, "laserrun")
+local specWarnSupressionBurst			= mod:NewSpecialWarningMoveAway(458845, nil, nil, nil, 1, 2, nil, nil, "runout")
 local specWarnSupressionBurstDebuff		= mod:NewSpecialWarningDispel(458844, "RemoveMagic", nil, nil, 1, 2)
-local specWarnGTFO						= mod:NewSpecialWarningGTFO(458799, nil, nil, nil, 1, 8)
+local specWarnGTFO						= mod:NewSpecialWarningGTFO(458799, nil, nil, nil, 1, 8, nil, nil, "watchfeet")
 
 local timerArcaneBombardmentCD			= mod:NewAITimer(32.7, 458423, nil, nil, nil, 2)
 local timerOverchargedLasersCD			= mod:NewAITimer(32.7, 458209, nil, nil, nil, 3)

@@ -35,13 +35,13 @@ local warnCosmicShards							= mod:NewCountAnnounce(459273, 4, nil, nil, DBM_COR
 local warnPhaseBlades							= mod:NewIncomingCountAnnounce(433517, 3, nil, nil, 100)
 local warnDecimate								= mod:NewIncomingCountAnnounce(442428, 3)
 
-local specWarnRainofArrows						= mod:NewSpecialWarningDodgeCount(439559, nil, nil, nil, 2, 2)
-local specWarnShatteringSweep					= mod:NewSpecialWarningRunCount(456420, nil, 394017, nil, 4, 2)
-local specWarnExpose							= mod:NewSpecialWarningDefensive(435401, nil, nil, nil, 1, 2)
-local specWarnPhaseLunge						= mod:NewSpecialWarningDefensive(435403, nil, nil, nil, 1, 2)
-local specWarnExposedWeakness					= mod:NewSpecialWarningTaunt(438845, nil, nil, nil, 1, 2)
-local specWarnPiercedDefenses					= mod:NewSpecialWarningTaunt(435410, nil, nil, nil, 1, 2)
-local specWarnGTFO								= mod:NewSpecialWarningGTFO(459785, nil, nil, nil, 1, 8)
+local specWarnRainofArrows						= mod:NewSpecialWarningDodgeCount(439559, nil, nil, nil, 2, 2, nil, nil, "watchstep")
+local specWarnShatteringSweep					= mod:NewSpecialWarningRunCount(456420, nil, 394017, nil, 4, 2, nil, nil, "justrun")
+local specWarnExpose							= mod:NewSpecialWarningDefensive(435401, nil, nil, nil, 1, 2, nil, nil, "defensive")
+local specWarnPhaseLunge						= mod:NewSpecialWarningDefensive(435403, nil, nil, nil, 1, 2, nil, nil, "defensive")
+local specWarnExposedWeakness					= mod:NewSpecialWarningTaunt(438845, nil, nil, nil, 1, 2, nil, nil, "tauntboss")
+local specWarnPiercedDefenses					= mod:NewSpecialWarningTaunt(435410, nil, nil, nil, 1, 2, nil, nil, "tauntboss")
+local specWarnGTFO								= mod:NewSpecialWarningGTFO(459785, nil, nil, nil, 1, 8, nil, nil, "watchfeet")
 
 local timerShatteringSweepCD					= mod:NewCDCountTimer(97.3, 456420, 394017, nil, nil, 2)--Shortname "Sweep"
 local timerCosmicShards							= mod:NewBuffFadesTimer(6, 459273, nil, nil, nil, 5)
