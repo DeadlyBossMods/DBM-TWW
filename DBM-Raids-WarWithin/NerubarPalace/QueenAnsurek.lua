@@ -59,7 +59,7 @@ local warnSilkenTomb							= mod:NewCountAnnounce(439814, 2, nil, nil, nil, nil,
 local warnFrothyToxin							= mod:NewCountAnnounce(464638, 3, nil, false, DBM_CORE_L.AUTO_ANNOUNCE_OPTIONS.stack:format(464638))--Player
 local warnReactionVapor							= mod:NewCountAnnounce(441556, 3, nil, false, DBM_CORE_L.AUTO_ANNOUNCE_OPTIONS.stack:format(441556))--Player
 
-local specWarnReactiveToxin						= mod:NewSpecialWarningMoveTo(437592, nil, nil, nil, 1, 2, nil, nil, "mm")
+local specWarnReactiveToxin						= mod:NewSpecialWarningMoveTo(437592, nil, nil, nil, 1, 2, nil, nil, "mm1")
 local specWarnReactiveToxinGeneric				= mod:NewSpecialWarningMoveAway(437592, nil, nil, nil, 1, 2, nil, nil, "runout")
 local yellReactiveToxin							= mod:NewShortPosYell(437592)
 local yellReactiveToxinFades					= mod:NewIconFadesYell(437592)
@@ -155,7 +155,7 @@ local warnRoyalCondemnation					= mod:NewTargetNoFilterAnnounce(438976, 3, nil, 
 local warnGloomHatchlings					= mod:NewStackAnnounce(443726, 2)--Version on boss
 local warnGorge								= mod:NewStackAnnounce(443342, 3, nil, "Tank")
 
-local specWarnAbyssalInfusion				= mod:NewSpecialWarningYouPos(443888, nil, 161722, nil, 1, 2, nil, nil, "mm")--Shortname "Portal" (will not override portals in api, "mm")
+local specWarnAbyssalInfusion				= mod:NewSpecialWarningYouPos(443888, nil, 161722, nil, 1, 2, nil, nil, "mm1")--Shortname "Portal" (will not override portals in api, "mm")
 local yellAbyssalInfusion					= mod:NewShortPosYell(443888, 161722)--Shortname "Portal"
 local yellAbyssalInfusionFades				= mod:NewIconFadesYell(443888, 161722)--Shortname "Portal"
 local specWarnAbyssalReverb					= mod:NewSpecialWarningMoveAway(455387, nil, 37859, nil, 1, 2, 3, nil, "runout")--Heroic+ secondary effect of Abyssal Infusion
@@ -165,7 +165,7 @@ local specWarnFrothingGluttony				= mod:NewSpecialWarningCount(445422, nil, nil,
 local specWarnAcolytesEssence				= mod:NewSpecialWarningMoveAway(445152, nil, nil, nil, 1, 2, nil, nil, "targetyou")
 local yellAcolytesEssenceFades				= mod:NewShortFadesYell(445152)
 local specWarnNullDetonation				= mod:NewSpecialWarningInterruptCount(445021, nil, nil, nil, 1, 2, nil, nil, "kickcast")
-local specWarnRoyalCondemnation				= mod:NewSpecialWarningYouPos(438976, nil, 292910, nil, 1, 2, nil, nil, "mm")
+local specWarnRoyalCondemnation				= mod:NewSpecialWarningYouPos(438976, nil, 292910, nil, 1, 2, nil, nil, "mm1")
 local yellRoyalCondemnation					= mod:NewShortPosYell(438976, 292910)
 --local yellRoyalCondemnationFades			= mod:NewIconFadesYell(438976)--No Duration on debuff
 local specWarnInfest						= mod:NewSpecialWarningMoveAway(443325, nil, nil, nil, 1, 2, nil, nil, "runout")
