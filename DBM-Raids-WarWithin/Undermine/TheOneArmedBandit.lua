@@ -37,6 +37,9 @@ or ability.id = 465309 and type = "cast"
 --]]
 --Stage One: That's RNG, Baby!
 mod:AddTimerLine(DBM:EJ_GetSectionInfo(30083))
+DBM:RegisterAltSpellName(465432, 28405)--Linked Machines cast -> Knockback
+DBM:RegisterAltSpellName(473195, L.BaitCoil)--Linked Machines bait -> Bait Coil
+
 --Player carrying Tokens
 local warnTokenCoin									= mod:NewTargetNoFilterAnnounce(472832, 1)
 local warnTokenBomb									= mod:NewTargetNoFilterAnnounce(472837, 1)
@@ -105,8 +108,8 @@ local warnCheatToWin							= mod:NewCountAnnounce(465309, 4)
 local specWarnHotHotHot							= mod:NewSpecialWarningDodge(465322, nil, nil, nil, 2, 2, nil, nil, "farfromline")--Second Cast
 local specWarnScatteredPayout					= mod:NewSpecialWarningSwitch(465580, "Dps", nil, nil, 1, 2, nil, nil, "targetchange")--Third Cast
 
-local timerLinkedMachinesCD						= mod:NewCDCountTimer(25.2, 473195, L.BaitCoil.." %s", nil, nil, 6)
-local timerLinkedMachinesCast					= mod:NewCastTimer(7.5, 465432, 28405, nil, nil, 5)--Shorttext knockback
+local timerLinkedMachinesCD						= mod:NewCDCountTimer(25.2, 473195, nil, nil, nil, 6)
+local timerLinkedMachinesCast					= mod:NewCastTimer(7.5, 465432, nil, nil, nil, 5)--Shorttext knockback
 local timerHotHotHotCD							= mod:NewCDCountTimer(25.2, 465322, nil, nil, nil, 6)
 local timerScatteredPayoutCD					= mod:NewCDCountTimer(25.2, 465580, nil, nil, nil, 6)
 local timerExplosiveJackpotCD					= mod:NewCDCountTimer(25.2, 465587, nil, nil, nil, 2, nil, DBM_COMMON_L.DEADLY_ICON)

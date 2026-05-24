@@ -35,6 +35,8 @@ or (ability.id = 466459 or ability.id = 466460) and type = "removebuff"
 --]]
 --Stage One: The Heads of Security
 mod:AddTimerLine(DBM:EJ_GetSectionInfo(31662))
+DBM:RegisterAltSpellName(-31766, 1215591)--Electro Shocker -> Electro Shocker
+
 local warnHHMug										= mod:NewSpellAnnounce(466459, 3)
 local warnHHZee										= mod:NewSpellAnnounce(466460, 3)
 local warnHHMugZee									= mod:NewSpellAnnounce(1222408, 2)
@@ -81,7 +83,7 @@ mod:AddTimerLine(DBM:EJ_GetSectionInfo(31693))
 local warnUnstableCrawlerMines						= mod:NewCountAnnounce(466539, 2)
 local warnSprayandPray								= mod:NewTargetNoFilterAnnounce(466545, 2)
 --local warnSurgingArc								= mod:NewTargetAnnounce(1214991, 2)
-local warnElectroShocker							= mod:NewCountAnnounce(-31766, 1, 1215591)
+local warnElectroShocker							= mod:NewCountAnnounce(-31766, 1)
 local warnDisintegrationBeam						= mod:NewTargetNoFilterAnnounce(1215481, 2)--Might be spammy
 local warnDoubleWhammy								= mod:NewTargetNoFilterAnnounce(469491, 2, nil, "Tank")
 
@@ -104,7 +106,7 @@ local timerGoblinGuidedRocketCD						= mod:NewCDCountTimer(41.9, 467380, nil, ni
 local timerSprayandPrayCD							= mod:NewCDCountTimer(70, 466545, nil, nil, nil, 3)
 --local timerSurgingArcCD							= mod:NewCDNPTimer(20.5, 1214991, nil, nil, nil, 3)
 local timerDoubleWhammyCD							= mod:NewCDCountTimer(70, 469491, nil, nil, nil, 5, nil, DBM_COMMON_L.TANK_ICON)
-local timerElectroShockerCD							= mod:NewCDCountTimer(30, -31766, 1215591, nil, nil, 1)
+local timerElectroShockerCD							= mod:NewCDCountTimer(30, -31766, nil, nil, nil, 1)
 
 mod:AddPrivateAuraSoundOption(472354, true, 466539, 1, 1, "bombyou", 12)--Fixate debuff linked to unstable crawler mines
 mod:AddNamePlateOption("NPAuraOnChargedShield", 1222948)

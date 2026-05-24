@@ -31,22 +31,26 @@ mod:RegisterEventsInCombat(
 (ability.id = 456420 or ability.id = 435401 or ability.id = 432965 or ability.id = 435403 or ability.id = 439559 or ability.id = 453258 or ability.id = 442428) and type = "begincast"
  or ability.id = 433517 and type = "applydebuff"
 --]]
+DBM:RegisterAltSpellName(456420, 394017)--Shattering Sweep -> Sweep
+DBM:RegisterAltSpellName(433517, 100)--Phase Blades -> Charge
+DBM:RegisterAltSpellName(439511, DBM_COMMON_L.TANKCOMBO)--Captain's Flourish -> Tank Combo
+
 local warnCosmicShards							= mod:NewCountAnnounce(459273, 4, nil, nil, DBM_CORE_L.AUTO_ANNOUNCE_OPTIONS.stack:format(459273))--Player
-local warnPhaseBlades							= mod:NewIncomingCountAnnounce(433517, 3, nil, nil, 100)
+local warnPhaseBlades							= mod:NewIncomingCountAnnounce(433517, 3)
 local warnDecimate								= mod:NewIncomingCountAnnounce(442428, 3)
 
 local specWarnRainofArrows						= mod:NewSpecialWarningDodgeCount(439559, nil, nil, nil, 2, 2, nil, nil, "watchstep")
-local specWarnShatteringSweep					= mod:NewSpecialWarningRunCount(456420, nil, 394017, nil, 4, 2, nil, nil, "justrun")
+local specWarnShatteringSweep					= mod:NewSpecialWarningRunCount(456420, nil, nil, nil, 4, 2, nil, nil, "justrun")
 local specWarnExpose							= mod:NewSpecialWarningDefensive(435401, nil, nil, nil, 1, 2, nil, nil, "defensive")
 local specWarnPhaseLunge						= mod:NewSpecialWarningDefensive(435403, nil, nil, nil, 1, 2, nil, nil, "defensive")
 local specWarnExposedWeakness					= mod:NewSpecialWarningTaunt(438845, nil, nil, nil, 1, 2, nil, nil, "tauntboss")
 local specWarnPiercedDefenses					= mod:NewSpecialWarningTaunt(435410, nil, nil, nil, 1, 2, nil, nil, "tauntboss")
 local specWarnGTFO								= mod:NewSpecialWarningGTFO(459785, nil, nil, nil, 1, 8, nil, nil, "watchfeet")
 
-local timerShatteringSweepCD					= mod:NewCDCountTimer(97.3, 456420, 394017, nil, nil, 2)--Shortname "Sweep"
+local timerShatteringSweepCD					= mod:NewCDCountTimer(97.3, 456420, nil, nil, nil, 2)--Shortname "Sweep"
 local timerCosmicShards							= mod:NewBuffFadesTimer(6, 459273, nil, nil, nil, 5)
-local timerCaptainsFlourishCD					= mod:NewCDCountTimer(22, 439511, DBM_COMMON_L.TANKCOMBO.." (%s)", "Tank|Healer", nil, 5, nil, DBM_COMMON_L.TANK_ICON)
-local timerPhaseBladesCD						= mod:NewCDCountTimer(42.6, 433517, 100, nil, nil, 3)--Shortname "Charge"
+local timerCaptainsFlourishCD					= mod:NewCDCountTimer(22, 439511, nil, "Tank|Healer", nil, 5, nil, DBM_COMMON_L.TANK_ICON)
+local timerPhaseBladesCD						= mod:NewCDCountTimer(42.6, 433517, nil, nil, nil, 3)--Shortname "Charge"
 local timerRainofArrowsCD						= mod:NewCDCountTimer(52.3, 439559, nil, nil, nil, 3)
 local timerDecimateCD							= mod:NewCDCountTimer(38.1, 442428, nil, nil, nil, 3)
 

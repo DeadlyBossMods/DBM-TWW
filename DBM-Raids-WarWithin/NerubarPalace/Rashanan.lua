@@ -26,27 +26,34 @@ mod:RegisterEventsInCombat(
 or ability.id = 456762 and type = "begincast"
 or stoppedability.id = 452806
 --]]
+DBM:RegisterAltSpellName(439789, 437704)--Rolling Acid -> Toxic Waves
+DBM:RegisterAltSpellName(439811, 123121)--Erosive Spray -> Spray
+DBM:RegisterAltSpellName(454989, 157317)--Enveloping Webs -> Webs
+DBM:RegisterAltSpellName(444687, DBM_COMMON_L.TANKDEBUFF)--Savage Assault -> Tank Debuff
+DBM:RegisterAltSpellName(455373, DBM_COMMON_L.ADDS)--Infested Spawn -> Adds
+DBM:RegisterAltSpellName(439795, DBM_COMMON_L.GROUPSOAK)--Web Reave -> Group Soak
+
 local warnSavageWound							= mod:NewStackAnnounce(458067, 2, nil, "Tank|Healer")
-local warnRollingAcid							= mod:NewIncomingCountAnnounce(439789, 2, nil, nil, 437704)--General announce, private aura sound will be personal emphasis
+local warnRollingAcid							= mod:NewIncomingCountAnnounce(439789, 2)--General announce, private aura sound will be personal emphasis
 local warnInfestedSpawn							= mod:NewIncomingCountAnnounce(455373, 2)
 local warnSpinneretsStrands						= mod:NewIncomingCountAnnounce(439784, 3)--General announce, private aura sound will be personal emphasis
-local warnErosiveSpray							= mod:NewCountAnnounce(439811, 2, nil, nil, 123121)--Shortname "Spray"
+local warnErosiveSpray							= mod:NewCountAnnounce(439811, 2)--Shortname "Spray"
 local warnAcidEruption							= mod:NewCastAnnounce(452806, 4)
 
 local specWarnSavageAssault						= mod:NewSpecialWarningDefensive(444687, nil, nil, nil, 1, 2, nil, nil, "defensive")
 local specWarnSavageAssaultTaunt				= mod:NewSpecialWarningTaunt(444687, nil, nil, nil, 1, 2, nil, nil, "tauntboss")
-local specWarnWebReave							= mod:NewSpecialWarningCount(439795, nil, nil, DBM_COMMON_L.GROUPSOAK, 2, 2, nil, nil, "gathershare")
-local specWarnEvellpingWebs						= mod:NewSpecialWarningDodgeCount(454989, nil, 157317, nil, 2, 2, nil, nil, "watchstep")
+local specWarnWebReave							= mod:NewSpecialWarningCount(439795, nil, nil, nil, 2, 2, nil, nil, "gathershare")
+local specWarnEvellpingWebs						= mod:NewSpecialWarningDodgeCount(454989, nil, nil, nil, 2, 2, nil, nil, "watchstep")
 local specWarnAcidEruption						= mod:NewSpecialWarningInterrupt(452806, "HasInterrupt", nil, nil, 1, 2, nil, nil, "kickcast")
 local specWarnGTFO								= mod:NewSpecialWarningGTFO(421532, nil, nil, nil, 1, 8, nil, nil, "watchfeet")
 
-local timerSavageAssaultCD						= mod:NewCDCountTimer(49, 444687, DBM_COMMON_L.TANKDEBUFF.." (%s)", "Tank|Healer", nil, 5, nil, DBM_COMMON_L.TANK_ICON)
-local timerRollingAcidCD						= mod:NewCDCountTimer(21.3, 439789, 437704, nil, nil, 3)--Shortname "Toxic Waves"
-local timerInfestedSpawnCD						= mod:NewCDCountTimer(21.3, 455373, DBM_COMMON_L.ADDS.." (%s)", nil, nil, 1)
+local timerSavageAssaultCD						= mod:NewCDCountTimer(49, 444687, nil, "Tank|Healer", nil, 5, nil, DBM_COMMON_L.TANK_ICON)
+local timerRollingAcidCD						= mod:NewCDCountTimer(21.3, 439789, nil, nil, nil, 3)--Shortname "Toxic Waves"
+local timerInfestedSpawnCD						= mod:NewCDCountTimer(21.3, 455373, nil, nil, nil, 1)
 local timerSpinneretsStrandsCD					= mod:NewCDCountTimer(33.9, 439784, nil, nil, nil, 3)
-local timerWebReaveCD							= mod:NewCDCountTimer(49, 439795, DBM_COMMON_L.GROUPSOAK.." (%s)", nil, nil, 3, nil, DBM_COMMON_L.DEADLY_ICON)
-local timerErosiveSprayCD						= mod:NewCDCountTimer(49, 439811, 123121, nil, nil, 2, nil, DBM_COMMON_L.HEALER_ICON)--Shortname "Spray"
-local timerEnvelopingWebsCD						= mod:NewCDCountTimer(49, 454989, 157317, nil, nil, 3, nil, DBM_COMMON_L.MYTHIC_ICON, nil, 1)--Shortname "Webs"
+local timerWebReaveCD							= mod:NewCDCountTimer(49, 439795, nil, nil, nil, 3, nil, DBM_COMMON_L.DEADLY_ICON)
+local timerErosiveSprayCD						= mod:NewCDCountTimer(49, 439811, nil, nil, nil, 2, nil, DBM_COMMON_L.HEALER_ICON)--Shortname "Spray"
+local timerEnvelopingWebsCD						= mod:NewCDCountTimer(49, 454989, nil, nil, nil, 3, nil, DBM_COMMON_L.MYTHIC_ICON, nil, 1)--Shortname "Webs"
 local timerMovementCD							= mod:NewStageContextCountTimer(49, 334371, nil, nil, nil, 6, 178717)
 
 mod:AddPrivateAuraSoundOption({439790,434406}, true, 439789, 1, 1, "targetyou", 2)--Rolling Acid target

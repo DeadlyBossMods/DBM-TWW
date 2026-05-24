@@ -36,22 +36,27 @@ or ability.id = 446349 and type = "applydebuff"
 or ability.id = 442432 and type = "removebuff"
 or ability.id = 446700 and type = "begincast"
 --]]
-local warnExperimentalDosage					= mod:NewTargetCountAnnounce(442526, 3, nil, nil, 143340)--Shortname "Injection"
+DBM:RegisterAltSpellName(442526, 143340)--Experimental Dosage -> Injection
+DBM:RegisterAltSpellName(442432, 325225)--Ingest Black Blood -> Container Breach
+DBM:RegisterAltSpellName(446349, 157317)--Unstable Web -> Web
+DBM:RegisterAltSpellName(446349, 389280)--Unstable Web -> Webs
 
-local specWarnExperimentalDosage				= mod:NewSpecialWarningMoveTo(442526, nil, 143340, nil, 1, 2, nil, nil, "movetoegg")--Shortname "Injection"
+local warnExperimentalDosage					= mod:NewTargetCountAnnounce(442526, 3)--Shortname "Injection"
+
+local specWarnExperimentalDosage				= mod:NewSpecialWarningMoveTo(442526, nil, nil, nil, 1, 2, nil, nil, "movetoegg")--Shortname "Injection"
 local yellxperimentalDosage						= mod:NewShortPosYell(442526, 19873)--Shortname "Destroy Egg" (This name is NOT injected into shortnames api)
 local yellxperimentalDosageFades				= mod:NewIconFadesYell(442526, 19873)--Shortname "Destroy Egg" (This name is NOT injected into shortnames api)
-local specWarnIngestBlackBlood					= mod:NewSpecialWarningCount(442432, nil, 325225, nil, 2, 2, nil, nil, "specialsoon")--Shortname "Container Breach"
-local specWarnUnstableWeb						= mod:NewSpecialWarningMoveAway(446349, nil, 389280, nil, 1, 2, nil, nil, "runout")--Shortname "Web"
+local specWarnIngestBlackBlood					= mod:NewSpecialWarningCount(442432, nil, nil, nil, 2, 2, nil, nil, "specialsoon")--Shortname "Container Breach"
+local specWarnUnstableWeb						= mod:NewSpecialWarningMoveAway(446349, nil, nil, nil, 1, 2, nil, nil, "runout")--Shortname "Web"
 local yellUnstableWeb							= mod:NewShortYell(446349, 389280)
 local specWarnVolatileConcoction				= mod:NewSpecialWarningDefensive(441362, nil, nil, nil, 1, 2, nil, nil, "defensive")
 local specWarnVolatileConcoctionTaunt			= mod:NewSpecialWarningTaunt(441362, nil, nil, nil, 1, 2, nil, nil, "tauntboss")
 local specWarnGTFO								= mod:NewSpecialWarningGTFO(442799, nil, nil, nil, 1, 8, nil, nil, "watchfeet")
 
-local timerExperimentalDosageCD					= mod:NewCDCountTimer(50, 442526, 143340, nil, nil, 3)--Shortname "Injection"
-local timerIngestBlackBloodCD					= mod:NewCDCountTimer(166.4, 442432, 325225, nil, nil, 3)--Shortname "Container Breach" (167-171 based on delaying boss casts by position)
-local timerUnstableWebCD						= mod:NewCDCountTimer(30, 446349, 157317, nil, nil, 3, nil, DBM_COMMON_L.HEROIC_ICON..DBM_COMMON_L.MAGIC_ICON)--Shortname "Webs"
-local timerVolatileConcoctionCD					= mod:NewCDCountTimer(20, 441362, DBM_COMMON_L.TANKDEBUFF.." (%s)", "Tank|Healer", nil, 5, nil, DBM_COMMON_L.TANK_ICON)
+local timerExperimentalDosageCD					= mod:NewCDCountTimer(50, 442526, nil, nil, nil, 3)--Shortname "Injection"
+local timerIngestBlackBloodCD					= mod:NewCDCountTimer(166.4, 442432, nil, nil, nil, 3)--Shortname "Container Breach" (167-171 based on delaying boss casts by position)
+local timerUnstableWebCD						= mod:NewCDCountTimer(30, 446349, nil, nil, nil, 3, nil, DBM_COMMON_L.HEROIC_ICON..DBM_COMMON_L.MAGIC_ICON)--Shortname "Webs"
+local timerVolatileConcoctionCD					= mod:NewCDCountTimer(20, 441362, nil, "Tank|Healer", nil, 5, nil, DBM_COMMON_L.TANK_ICON)
 
 mod:AddSetIconOption("SetIconOnEggBreaker", 442526, true, 10, {6, 4, 3, 7, 1, 2})--Egg Breaker auto assign strat (Priority for melee > ranged > healer)
 mod:AddDropdownOption("EggBreakerBehavior", {"MatchBW", "UseAllAscending", "AvoidRedNPurple", "DisableIconsForRaid", "DisableAllForRaid"}, "MatchBW", "misc", nil, 442526)

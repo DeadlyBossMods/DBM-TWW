@@ -33,6 +33,16 @@ or (ability.id = 451016 or ability.id = 456174) and type = "begincast"
 or (ability.id = 451277 or ability.id = 450980) and (type = "applybuff" or type = "removebuff")
 --]]
 local anubarash, takazj = DBM:EJ_GetSectionInfo(29012), DBM:EJ_GetSectionInfo(29017)
+DBM:RegisterAltSpellName(440246, 100)--Reckless Charge -> Charge
+DBM:RegisterAltSpellName(441791, 118563)--Burrowed Eruption -> Burrow
+DBM:RegisterAltSpellName(438656, 44933)--Venomous Rain -> Rain
+DBM:RegisterAltSpellName(450045, 47482)--Skittering Leap -> Leap
+DBM:RegisterAltSpellName(450483, 4801)--Void Step -> Teleport
+DBM:RegisterAltSpellName(450129, 301902)--Entropic Desolation -> Run Away!
+DBM:RegisterAltSpellName(438355, 108132)--Cataclysmic Entropy -> Massive Explosion
+DBM:RegisterAltSpellName(443068, 14104)--Spike Eruption -> Spikes
+DBM:RegisterAltSpellName(442994, 310414)--Unleashed Swarm -> Swarm
+
 --General Stuff
 local specWarnMarkofParanoia					= mod:NewSpecialWarningYou(455849, nil, nil, nil, 1, 17, 4, nil, "paranoiayou")
 local specWarnMarkofRage						= mod:NewSpecialWarningYou(455850, nil, nil, nil, 1, 17, 4, nil, "rageyou")
@@ -43,24 +53,24 @@ mod:AddTimerLine(DBM:EJ_GetSectionInfo(29011))
 ----Anub'arash
 mod:AddTimerLine(anubarash)
 local warnPiercingStrike						= mod:NewStackAnnounce(438218, 2, nil, "Tank|Healer", 2)
-local warnCalloftheSwarm						= mod:NewCountAnnounce(438801, 2, nil, nil, nil, nil, DBM_COMMON_L.ADDS)
-local warnBurrowedEruption						= mod:NewCountAnnounce(441791, 2, nil, nil, 118563)
+local warnCalloftheSwarm						= mod:NewCountAnnounce(438801, 2)
+local warnBurrowedEruption						= mod:NewCountAnnounce(441791, 2)
 local warnImpaled								= mod:NewTargetNoFilterAnnounce(449857, 4)
 local warnEntangled								= mod:NewTargetNoFilterAnnounce(440179, 1)
 
 local specWarnPiercingStrike					= mod:NewSpecialWarningDefensive(438218, nil, nil, nil, 1, 2, nil, nil, "defensive")
 local specWarnPiercingStrikeTaunt				= mod:NewSpecialWarningTaunt(438218, nil, nil, nil, 1, 2, nil, nil, "tauntboss")
-local specWarnRecklessCharge					= mod:NewSpecialWarningCount(440246, nil, 100, nil, 1, 2, nil, nil, "chargemove")--If we can get target, make dodge warning for non target and "move to web" for target
-local specWarnImpalingEruption					= mod:NewSpecialWarningDodgeCount(440504, nil, nil, DBM_COMMON_L.FRONTAL .. L.Blue, 2, 15, nil, nil, "frontal")
+local specWarnRecklessCharge					= mod:NewSpecialWarningCount(440246, nil, nil, nil, 1, 2, nil, nil, "chargemove")--If we can get target, make dodge warning for non target and "move to web" for target
+local specWarnImpalingEruption					= mod:NewSpecialWarningDodgeCount(440504, nil, nil, nil, 2, 15, nil, nil, "frontal")
 local yellImpaled								= mod:NewShortYell(449857, nil, false)
 --local specWarnGTFO							= mod:NewSpecialWarningGTFO(421532, nil, nil, nil, 1, 8)
 
 local timerPiercingStrikeCD						= mod:NewCDCountTimer(49, 438218, nil, "Tank|Healer", nil, 5, nil, DBM_COMMON_L.TANK_ICON)
-local timerCalloftheSwarmCD						= mod:NewCDCountTimer(49, 438801, DBM_COMMON_L.ADDS.." (%s)", nil, nil, 1)
-local timerRecklessChargeCD						= mod:NewCDCountTimer(49, 440246, 100, nil, nil, 3, nil, DBM_COMMON_L.DEADLY_ICON)--Shortname "Charge"
-local timerRecklessCharge						= mod:NewCastTimer(49, 440246, 100, nil, nil, 5, nil, DBM_COMMON_L.DEADLY_ICON)--Shortname "Charge"
-local timerBurrowedEruptionCD					= mod:NewCDCountTimer(49, 441791, 118563, nil, nil, 3)--Shortname "Burrow"
-local timerImpalingEruptionCD					= mod:NewCDCountTimer(49, 440504, DBM_COMMON_L.FRONTAL .. L.Blue .. " (%s)", nil, nil, 3)--Frontal + boss initial
+local timerCalloftheSwarmCD					= mod:NewCDCountTimer(49, 438801, nil, nil, nil, 1)
+local timerRecklessChargeCD						= mod:NewCDCountTimer(49, 440246, nil, nil, nil, 3, nil, DBM_COMMON_L.DEADLY_ICON)--Shortname "Charge"
+local timerRecklessCharge						= mod:NewCastTimer(49, 440246, nil, nil, nil, 5, nil, DBM_COMMON_L.DEADLY_ICON)--Shortname "Charge"
+local timerBurrowedEruptionCD					= mod:NewCDCountTimer(49, 441791, nil, nil, nil, 3)--Shortname "Burrow"
+local timerImpalingEruptionCD					= mod:NewCDCountTimer(49, 440504, nil, nil, nil, 3)--Frontal + boss initial
 --local timerEntangledCD						= mod:NewTargetTimer(6, 440179, nil, false, nil, 5)--Too many timers on fight already, this is opt in
 
 mod:AddNamePlateOption("NPAuraOnPerseverance", 455080, true)
@@ -69,15 +79,15 @@ mod:AddSetIconOption("SetIconOnScarab", 438801, true, 5, {8, 7, 6})
 mod:AddTimerLine(takazj)
 local warnPoisonBolt						= mod:NewStackAnnounce(438200, 2, nil, "Tank|Healer")
 local warnWebBomb							= mod:NewCountAnnounce(439838, 3)--General announce for everyone, personal special announce to target
-local warnSkitteringLeap					= mod:NewCountAnnounce(450045, 2, nil, nil, 47482)
+local warnSkitteringLeap					= mod:NewCountAnnounce(450045, 2)
 local warnBindingWeb						= mod:NewFadesAnnounce(440001, 1)
 
 local specWarnBindingWebs					= mod:NewSpecialWarningLink(440001, nil, nil, nil, 1, 2)
-local specWarnVenomousRain					= mod:NewSpecialWarningMoveAwayCount(438656, nil, 44933, nil, 1, 2, nil, nil, "scatter")--Change to moveto if this is one that removes ground webs?
+local specWarnVenomousRain					= mod:NewSpecialWarningMoveAwayCount(438656, nil, nil, nil, 1, 2, nil, nil, "scatter")--Change to moveto if this is one that removes ground webs?
 
-local timerVenomousRainCD					= mod:NewCDCountTimer(49, 438656, 44933, nil, nil, 3)--Shortname "Rain"
+local timerVenomousRainCD					= mod:NewCDCountTimer(49, 438656, nil, nil, nil, 3)--Shortname "Rain"
 local timerWebBombCD						= mod:NewCDCountTimer(49, 439838, nil, nil, nil, 3)
-local timerSkitteringLeapCD					= mod:NewCDCountTimer(49, 450045, 47482, nil, nil, 3)--Shortname "Leap"
+local timerSkitteringLeapCD					= mod:NewCDCountTimer(49, 450045, nil, nil, nil, 3)--Shortname "Leap"
 local timerVoidAscensionCD					= mod:NewIntermissionCountTimer(100, 450483, nil, nil, nil, 6)
 --Stage Two: Grasp of the Void
 mod:AddTimerLine(DBM:EJ_GetSectionInfo(29021))
@@ -90,34 +100,34 @@ local warnStingingDelirium					= mod:NewTargetNoFilterAnnounce(456245, 2)--Playe
 local specWarnStingingSwarm					= mod:NewSpecialWarningMoveTo(438677, nil, nil, nil, 1, 2, nil, nil, "movetoboss")--438708
 local yellStingingSwarm						= mod:NewShortYell(438677)
 
-local timerStingingSwarmCD					= mod:NewCDCountTimer(49, 438677, DBM_COMMON_L.DISPELS.." (%s)", nil, nil, 3, nil, DBM_COMMON_L.MAGIC_ICON)
+local timerStingingSwarmCD					= mod:NewCDCountTimer(49, 438677, nil, nil, nil, 3, nil, DBM_COMMON_L.MAGIC_ICON)
 local timerRagingFuryIntermissionCD			= mod:NewIntermissionCountTimer(100, 451277, nil, nil, nil, 6)
 
 mod:AddNamePlateOption("NPAuraOnStingingBoss", 456252, true)
 ----Skeinspinner Takazj
 mod:AddTimerLine(takazj)
-local warnVoidStep							= mod:NewCountAnnounce(450483, 2, nil, nil, 4801)
-local warnEntropicDesolation				= mod:NewCastAnnounce(450129, 4, nil, nil, nil, 301902)
+local warnVoidStep							= mod:NewCountAnnounce(450483, 2)
+local warnEntropicDesolation				= mod:NewCastAnnounce(450129, 4)
 
 local specWarnWebVortex						= mod:NewSpecialWarningCount(441626, nil, nil, nil, 2, 12, nil, nil, "pullin")
-local specWarnStrandsofReality				= mod:NewSpecialWarningDodgeCount(441782, nil, nil, DBM_COMMON_L.FRONTAL .. L.Red, 2, 15, nil, nil, "frontal")
+local specWarnStrandsofReality				= mod:NewSpecialWarningDodgeCount(441782, nil, nil, nil, 2, 15, nil, nil, "frontal")
 local specWarnCataclysmicEntropy			= mod:NewSpecialWarningCount(438355, nil, nil, nil, 2, 2, nil, nil, "specialsoon")
 
 local timerWebVortexCD						= mod:NewCDCountTimer(49, 441626, nil, nil, nil, 2)
-local timerEntropicDesolationCD				= mod:NewCDCountTimer(49, 450129, 301902, nil, nil, 2)--Shortname "Run Away!"
-local timerStrandsofRealityCD				= mod:NewCDCountTimer(49, 441782, DBM_COMMON_L.FRONTAL .. L.Red .. " (%s)", nil, nil, 3)--Frontal + boss initial
-local timerVoidStepCD						= mod:NewCDCountTimer(49, 450483, 4801, nil, nil, 3)--Shortname "Teleport"
-local timerCataclysmicEntropyCD				= mod:NewCDCountTimer(49, 438355, 108132, nil, nil, 5, nil, DBM_COMMON_L.DEADLY_ICON)--Shortname "Massive Explosion"
+local timerEntropicDesolationCD				= mod:NewCDCountTimer(49, 450129, nil, nil, nil, 2)--Shortname "Run Away!"
+local timerStrandsofRealityCD					= mod:NewCDCountTimer(49, 441782, nil, nil, nil, 3)--Frontal + boss initial
+local timerVoidStepCD							= mod:NewCDCountTimer(49, 450483, nil, nil, nil, 3)--Shortname "Teleport"
+local timerCataclysmicEntropyCD				= mod:NewCDCountTimer(49, 438355, nil, nil, nil, 5, nil, DBM_COMMON_L.DEADLY_ICON)--Shortname "Massive Explosion"
 --Stage Three: Unleashed Rage
 mod:AddTimerLine(DBM:EJ_GetSectionInfo(29022))
 local specWarnEnragedFerocity				= mod:NewSpecialWarningDispel(443598, "RemoveEnrage", nil, nil, 1, 2, nil, nil, "enrage")
 ----Anub'arash
 mod:AddTimerLine(anubarash)
-local specWarnUnleashedSwarm				= mod:NewSpecialWarningCount(442994, nil, 310414, nil, 2, 2, nil, nil, "aesoon")
-local specWarnSpikeEruption					= mod:NewSpecialWarningDodgeCount(443068, nil, 14104, nil, 2, 2, nil, nil, "watchstep")
+local specWarnUnleashedSwarm				= mod:NewSpecialWarningCount(442994, nil, nil, nil, 2, 2, nil, nil, "aesoon")
+local specWarnSpikeEruption					= mod:NewSpecialWarningDodgeCount(443068, nil, nil, nil, 2, 2, nil, nil, "watchstep")
 
-local timerSpikeEruptionCD					= mod:NewCDCountTimer(49, 443068, 14104, nil, nil, 3)--Shortname "Spikes"
-local timerUnleashedSwarmCD					= mod:NewCDCountTimer(49, 442994, 310414, nil, nil, 2, nil, DBM_COMMON_L.DEADLY_ICON)--Shortname "Swarm"
+local timerSpikeEruptionCD					= mod:NewCDCountTimer(49, 443068, nil, nil, nil, 3)--Shortname "Spikes"
+local timerUnleashedSwarmCD					= mod:NewCDCountTimer(49, 442994, nil, nil, nil, 2, nil, DBM_COMMON_L.DEADLY_ICON)--Shortname "Swarm"
 
 mod.vb.burrowedEruptionCount = 0
 mod.vb.piercingCount = 0

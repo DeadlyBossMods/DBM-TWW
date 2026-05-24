@@ -30,9 +30,15 @@ mod:RegisterEventsInCombat(
 or ability.id = 448364 and type = "cast"
 or ability.id = 435405 and type = "removebuff"
 --]]
+DBM:RegisterAltSpellName(438245, DBM_COMMON_L.CHARGES)--Twilight Massacre -> Charges
+DBM:RegisterAltSpellName(439409, DBM_COMMON_L.ORBS)--Assassination Orbs -> Orbs
+DBM:RegisterAltSpellName(437620, DBM_COMMON_L.RIFT)--Nether Rift -> Rift
+DBM:RegisterAltSpellName(440377, DBM_COMMON_L.TANKDEBUFF)--Void Shredders -> Tank Debuff
+DBM:RegisterAltSpellName(439576, 1180)--Nexus Daggers -> Daggers
+
 local warnAss									= mod:NewIncomingCountAnnounce(436867, 3)
 local warnDeathMasks							= mod:NewCountAnnounce(448364, 4)
-local warnTwilightMassacre						= mod:NewCountAnnounce(438245, 3, nil, nil, nil, nil, DBM_COMMON_L.CHARGES)
+local warnTwilightMassacre						= mod:NewCountAnnounce(438245, 3)
 local warnChasmalGash							= mod:NewStackAnnounce(440576, 2, nil, "Tank|Healer", 320007)--Shortname "Gash"
 local warnStarlessNight							= mod:NewCountAnnounce(435414, 3)
 local warnEternalNight							= mod:NewCastAnnounce(442277, 4)
@@ -41,19 +47,19 @@ local specWarnQueensBane						= mod:NewSpecialWarningMoveAway(437343, nil, nil, 
 local yellQueensBane							= mod:NewShortFadesYell(437343)
 local specWarnDeathCloak						= mod:NewSpecialWarningSpell(447174, nil, nil, nil, 2, 2, nil, nil, "aesoon")
 local specWarnNetherRift						= mod:NewSpecialWarningDodgeCount(437620, nil, nil, nil, 2, 2, nil, nil, "watchstep")
-local specWarnNexusDaggers						= mod:NewSpecialWarningDodgeCount(439576, nil, 1180, nil, 2, 2, nil, nil, "farfromline")
+local specWarnNexusDaggers						= mod:NewSpecialWarningDodgeCount(439576, nil, nil, nil, 2, 2, nil, nil, "farfromline")
 local specWarnVoidShredders						= mod:NewSpecialWarningDefensive(440377, nil, nil, nil, 1, 2, nil, nil, "defensive")
 local specWarnChasmalGashStack					= mod:NewSpecialWarningStack(440576, nil, 8, 320007, nil, 1, 6, nil, nil, "stackhigh")
 local specWarnChasmalGashSwap					= mod:NewSpecialWarningTaunt(440576, nil, 320007, nil, 1, 2, nil, nil, "tauntboss")
 --local specWarnGTFO							= mod:NewSpecialWarningGTFO(421532, nil, nil, nil, 1, 8)
 
 local timerAssCD								= mod:NewCDCountTimer(120, 436867, nil, nil, nil, 3)
-local timerOrbsCD								= mod:NewCastTimer(10, 439409, DBM_COMMON_L.ORBS, nil, nil, 3)
+local timerOrbsCD								= mod:NewCastTimer(10, 439409, nil, nil, nil, 3)
 local timerDeathMasksCD							= mod:NewCDCountTimer(49, 448364, nil, nil, nil, 3, nil, DBM_COMMON_L.MYTHIC_ICON)
-local timerTwilightMassacreCD					= mod:NewCDCountTimer(30, 438245, DBM_COMMON_L.CHARGES.." (%s)", nil, nil, 3)
-local timerNetherRiftCD							= mod:NewCDCountTimer(30, 437620, DBM_COMMON_L.RIFT.." (%s)", nil, nil, 3)--shortname Rift
-local timerNexusDaggersCD						= mod:NewCDCountTimer(30, 439576, 1180, nil, nil, 3)--Shortname "Daggers"
-local timerVoidShreddersCD						= mod:NewCDCountTimer(30, 440377, DBM_COMMON_L.TANKDEBUFF.." (%s)", "Tank|healer", nil, 5, nil, DBM_COMMON_L.TANK_ICON)
+local timerTwilightMassacreCD					= mod:NewCDCountTimer(30, 438245, nil, nil, nil, 3)
+local timerNetherRiftCD							= mod:NewCDCountTimer(30, 437620, nil, nil, nil, 3)--shortname Rift
+local timerNexusDaggersCD						= mod:NewCDCountTimer(30, 439576, nil, nil, nil, 3)--Shortname "Daggers"
+local timerVoidShreddersCD						= mod:NewCDCountTimer(30, 440377, nil, "Tank|healer", nil, 5, nil, DBM_COMMON_L.TANK_ICON)
 local timerStarlessNightCD						= mod:NewCDCountTimer(120, 435405, nil, nil, nil, 6)--BW note. They localized it as "stage 2" but they don't use a "stages" bar. if they ever change it, object needs to be changed to NewStageCountCycleTimer for WA compat to remain
 local timerStarlessNight						= mod:NewBuffActiveTimer(24, 435405, nil, nil, nil, 5)
 

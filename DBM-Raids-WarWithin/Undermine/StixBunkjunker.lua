@@ -37,11 +37,13 @@ mod:RegisterEventsInCombat(
 --]]
 --Sorting
 mod:AddTimerLine(DBM:GetSpellName(464399))
+DBM:RegisterAltSpellName(464399, DBM_COMMON_L.BALLS.. "+" ..DBM_COMMON_L.ADDS)--Electro Sorting -> Balls+Adds
+
 local warnSorted									= mod:NewTargetCountAnnounce(465346, 3, nil, nil, nil, nil, nil, nil, true)
 local warnInfectedbite								= mod:NewCountAnnounce(466748, 4, nil, nil, DBM_CORE_L.AUTO_ANNOUNCE_OPTIONS.stack:format(466748))--Player
 local warnRollingRubbish							= mod:NewCountAnnounce(461536, 1, nil, nil, DBM_CORE_L.AUTO_ANNOUNCE_OPTIONS.stack:format(461536), nil, nil, 2)--Player
 
-local specWarnElectroSorting						= mod:NewSpecialWarningCount(464399, nil, nil, DBM_COMMON_L.BALLS.. "+" ..DBM_COMMON_L.ADDS, 2, 2, nil, nil, "specialsoon")
+local specWarnElectroSorting						= mod:NewSpecialWarningCount(464399, nil, nil, nil, 2, 2, nil, nil, "specialsoon")
 local specWarnSorted								= mod:NewSpecialWarningYou(461536, nil, nil, nil, 1, 2, nil, nil, "targetyou")--Pre target debuff for Rolling Rubbish
 local yellSorted									= mod:NewShortPosYell(461536)
 local yellSortedFades								= mod:NewIconFadesYell(461536)
@@ -49,7 +51,7 @@ local specWarnSortedTaunt							= mod:NewSpecialWarningTaunt(461536, nil, nil, n
 local specWarnPowercoil								= mod:NewSpecialWarningYou(1218704, nil, nil, nil, 1, 2, 4, nil, "targetyou")
 local specWarnGTFO									= mod:NewSpecialWarningGTFO(464854, nil, nil, nil, 1, 8, nil, nil, "watchfeet")
 
-local timerElectroSortingCD							= mod:NewNextCountTimer(51.1, 464399, DBM_COMMON_L.BALLS.. "+" ..DBM_COMMON_L.ADDS.." (%s)", nil, nil, 2)
+local timerElectroSortingCD							= mod:NewNextCountTimer(51.1, 464399, nil, nil, nil, 2)
 local timerRollingPlayer							= mod:NewBuffFadesTimer(20, 461536, nil, nil, nil, 5, nil, nil, nil, 1, 5)
 --local timerBigBomb								= mod:NewCastTimer(20, 464865, nil, nil, nil, 2, nil, DBM_COMMON_L.DEADLY_ICON)
 local timerShortFuseCast							= mod:NewCastNPTimer(30, 473115, nil, nil, nil, 2)
