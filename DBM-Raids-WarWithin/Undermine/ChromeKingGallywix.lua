@@ -124,7 +124,7 @@ local warnMayhemRockets								= mod:NewCountAnnounce(1218696, 2)
 local specWarnCombinationCanisters					= mod:NewSpecialWarningSoakCount(1217987, nil, nil, nil, 2, 2, 4, nil, "helpsoak")
 local specWarnScatterbombCanisters					= mod:NewSpecialWarningSoakCount(1218488, nil, nil, nil, 2, 2, 4, nil, "helpsoak")
 local specWarnStaticZap								= mod:NewSpecialWarningInterruptCount(1219041, "HasInterrupt", nil, nil, 1, 2, nil, nil, "kick2r")
-local specWarnIonizationDispel						= mod:NewSpecialWarningDispel(1219039, "RemoveMagic", nil, nil, 1, 2)
+local specWarnIonizationDispel						= mod:NewSpecialWarningDispel(1219039, "RemoveMagic", nil, nil, 1, 2, nil, nil, "helpdispel")
 local specWarnBBBBarrage							= mod:NewSpecialWarningCount(1218546, nil, nil, nil, 2, 2, nil, nil, "bombsoon")
 
 local timerCombinationCanistersCD					= mod:NewCDCountTimer(97.3, 1217987, nil, nil, nil, 3, nil, DBM_COMMON_L.MYTHIC_ICON)
