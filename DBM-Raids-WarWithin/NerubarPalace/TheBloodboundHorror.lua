@@ -76,7 +76,7 @@ mod:AddTimerLine(DBM:GetSpellName(462306))
 local warnManifestHorror						= mod:NewCastAnnounce(445174, 4, nil, nil, false, 2)--Spammy, opt in
 local warnBloodPact								= mod:NewStackAnnounce(445272, 2)
 
-local specWarnBlackBulwark						= mod:NewSpecialWarningInterruptCount(451288, "HasInterrupt", 151702, nil, 1, 2, nil, nil, "kickcast")
+local specWarnBlackBulwark						= mod:NewSpecialWarningInterruptCount(451288, "HasInterrupt", nil, nil, 1, 2, nil, nil, "kickcast")
 local specWarnSpectralSlam						= mod:NewSpecialWarningDefensive(445016, nil, nil, nil, 1, 2, nil, nil, "defensive")
 
 --These timers have large variations, especially when tanks outrange them or when they live through multiple groups phasing in

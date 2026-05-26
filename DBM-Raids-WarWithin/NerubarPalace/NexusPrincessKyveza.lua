@@ -35,11 +35,12 @@ DBM:RegisterAltSpellName(439409, DBM_COMMON_L.ORBS)--Assassination Orbs -> Orbs
 DBM:RegisterAltSpellName(437620, DBM_COMMON_L.RIFT)--Nether Rift -> Rift
 DBM:RegisterAltSpellName(440377, DBM_COMMON_L.TANKDEBUFF)--Void Shredders -> Tank Debuff
 DBM:RegisterAltSpellName(439576, 1180)--Nexus Daggers -> Daggers
+DBM:RegisterAltSpellName(440576, 320007)--Chasmal Gash -> Gash
 
 local warnAss									= mod:NewIncomingCountAnnounce(436867, 3)
 local warnDeathMasks							= mod:NewCountAnnounce(448364, 4)
 local warnTwilightMassacre						= mod:NewCountAnnounce(438245, 3)
-local warnChasmalGash							= mod:NewStackAnnounce(440576, 2, nil, "Tank|Healer", 320007)--Shortname "Gash"
+local warnChasmalGash							= mod:NewStackAnnounce(440576, 2, nil, "Tank|Healer")--Shortname "Gash"
 local warnStarlessNight							= mod:NewCountAnnounce(435414, 3)
 local warnEternalNight							= mod:NewCastAnnounce(442277, 4)
 
@@ -49,8 +50,8 @@ local specWarnDeathCloak						= mod:NewSpecialWarningSpell(447174, nil, nil, nil
 local specWarnNetherRift						= mod:NewSpecialWarningDodgeCount(437620, nil, nil, nil, 2, 2, nil, nil, "watchstep")
 local specWarnNexusDaggers						= mod:NewSpecialWarningDodgeCount(439576, nil, nil, nil, 2, 2, nil, nil, "farfromline")
 local specWarnVoidShredders						= mod:NewSpecialWarningDefensive(440377, nil, nil, nil, 1, 2, nil, nil, "defensive")
-local specWarnChasmalGashStack					= mod:NewSpecialWarningStack(440576, nil, 8, 320007, nil, 1, 6, nil, nil, "stackhigh")
-local specWarnChasmalGashSwap					= mod:NewSpecialWarningTaunt(440576, nil, 320007, nil, 1, 2, nil, nil, "tauntboss")
+local specWarnChasmalGashStack					= mod:NewSpecialWarningStack(440576, nil, 8, nil, nil, 1, 6, nil, nil, "stackhigh")
+local specWarnChasmalGashSwap					= mod:NewSpecialWarningTaunt(440576, nil, nil, nil, 1, 2, nil, nil, "tauntboss")
 --local specWarnGTFO							= mod:NewSpecialWarningGTFO(421532, nil, nil, nil, 1, 8)
 
 local timerAssCD								= mod:NewCDCountTimer(120, 436867, nil, nil, nil, 3)
