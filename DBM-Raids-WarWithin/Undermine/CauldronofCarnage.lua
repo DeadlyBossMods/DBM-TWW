@@ -22,8 +22,8 @@ mod:AddCustomTimerOptions(472231, true, 3, 0)
 mod:AddCustomTimerOptions(1214083, true, 3, 0)
 mod:AddCustomTimerOptions(1214190, true, 5, 0)
 mod:AddCustomTimerOptions(465833, true, 6, 0)
---Midnight private aura replacements
---mod:AddPrivateAuraSoundOption(1226311, true, 1226315, 3)
+--Custom Aura Sounds
+--mod:AddAuraSoundOption(1226311, true, 1226315, 3)
 
 function mod:OnLimitedCombatStart()
 	self:EnableAlertOptions(465833, 338, "phasechange", 2)

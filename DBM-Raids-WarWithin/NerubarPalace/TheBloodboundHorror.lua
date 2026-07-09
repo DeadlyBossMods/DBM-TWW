@@ -86,7 +86,7 @@ local timerSpectralSlamCD						= mod:NewCDNPTimer(13.4, 445016, nil, nil, nil, 5
 --mod:AddInfoFrameOption(407919, true)
 mod:AddSetIconOption("SetIconOnWatchers", 444830, true, 5, {4})
 mod:AddSetIconOption("SetIconOnHarb", 444835, true, 5, {8, 7, 6, 5})--Support up to 2 sets of adds
---mod:AddPrivateAuraSoundOption(426010, true, 425885, 4)
+--mod:AddAuraSoundOption(426010, true, 425885, 4)
 
 mod.vb.disgorgeCount = 0
 mod.vb.curdleCount = 0
@@ -257,7 +257,7 @@ function mod:SPELL_AURA_APPLIED(args)
 			warnBanefulShift:Show()
 			timerBanefulShift:Start()
 		else
-			local uId = DBM:GetRaidUnitId(args.destName)
+			local uId = DBM:GetRaidUnitId(args.destName, true)
 			if self:IsTanking(uId) then
 				specWarnBanefulShift:Show(args.destName)
 				specWarnBanefulShift:Play("tauntboss")

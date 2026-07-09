@@ -20,11 +20,11 @@ mod:AddCustomTimerOptions(1219532, true, 3, 0)--Eradicating Salvo
 mod:AddCustomTimerOptions(1234733, true, 6, 0)--Cleanse the Chamber
 mod:AddCustomTimerOptions(1220489, true, 6, 0)--Protocol: Purge
 mod:AddCustomTimerOptions(1272966, true, 6, 0)--Stage 2 (generic trigger. shared across any fight using generic stage triggers)
---Midnight private aura replacements
-mod:AddPrivateAuraSoundOption(1219439, true, 1219263, 1, 1, "runout", 2)--Obliteration Arcanocannon, only person who needs alert so no cast alert
-mod:AddPrivateAuraSoundOption(1219459, true, 1219450, 1, 1, "runout", 2)--Manifest Matrices
-mod:AddPrivateAuraSoundOption({1219607,1219531}, true, 1219532, 1, 1, "gathershare", 2)--Eradicating Salvo
-mod:AddPrivateAuraSoundOption(1219354, true, 1219354, 1, 2, "watchfeet", 8)--GTFO
+--Custom Aura Sounds
+mod:AddAuraSoundOption(1219439, true, 1219263, 1, 1, "runout", 2)--Obliteration Arcanocannon, only person who needs alert so no cast alert
+mod:AddAuraSoundOption(1219459, true, 1219450, 1, 1, "runout", 2)--Manifest Matrices
+mod:AddAuraSoundOption({1219607,1219531}, true, 1219532, 1, 1, "gathershare", 2)--Eradicating Salvo
+mod:AddAuraSoundOption(1219354, true, 1219354, 1, 2, "watchfeet", 8)--GTFO
 
 function mod:OnLimitedCombatStart()
 	self:EnableAlertOptions(1220489, {231, 232, 233}, "carefly", 2)--3 spellids for protocol purge

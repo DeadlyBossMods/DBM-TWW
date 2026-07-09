@@ -272,7 +272,7 @@ function mod:SPELL_AURA_APPLIED(args)
 		if args:IsPlayer() then
 			bigballs = 0
 		else
-			local uId = DBM:GetRaidUnitId(args.destName)
+			local uId = DBM:GetRaidUnitId(args.destName, true)
 			if self:IsTanking(uId) then--One of ball is always the tank, so it's also a tank swap
 				specWarnSortedTaunt:Show(args.destName)
 				specWarnSortedTaunt:Play("tauntboss")

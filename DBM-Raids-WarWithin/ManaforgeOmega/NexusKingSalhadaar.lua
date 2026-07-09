@@ -36,14 +36,14 @@ mod:AddCustomTimerOptions(1226648, true, 3, 0)--Galactic Smash
 mod:AddCustomTimerOptions(1226442, true, 3, 0)--Starkiller Swing
 mod:AddCustomTimerOptions(1225634, true, 6, 0)--World in Twilight
 --Pre midnight private auras
-mod:AddPrivateAuraSoundOption({1224855,1224857,1224858,1224859,1224864,1225060,1224860,1225055,1225056,1225057,1225059,1224828,1225058}, true, 1224827, 1, 1, "lineyou", 17)--Behead
-mod:AddPrivateAuraSoundOption(1237108, true, 1237106, 1, 1, "behindmob", 2)--Twilight Massacre
-mod:AddPrivateAuraSoundOption(1228114, true, 1228115, 1, 1, "lineyou", 17)--Netherbreaker
-mod:AddPrivateAuraSoundOption({1225316,1248128,1226601,1226602}, true, 1226648, 1, 1, "runout", 2)--Galactic Smash
-mod:AddPrivateAuraSoundOption(1226018, true, 1226442, 1, 1, "runout", 2)--Starkiller Swing
+mod:AddAuraSoundOption({1224855,1224857,1224858,1224859,1224864,1225060,1224860,1225055,1225056,1225057,1225059,1224828,1225058}, true, 1224827, 1, 1, "lineyou", 17)--Behead
+mod:AddAuraSoundOption(1237108, true, 1237106, 1, 1, "behindmob", 2)--Twilight Massacre
+mod:AddAuraSoundOption(1228114, true, 1228115, 1, 1, "lineyou", 17)--Netherbreaker
+mod:AddAuraSoundOption({1225316,1248128,1226601,1226602}, true, 1226648, 1, 1, "runout", 2)--Galactic Smash
+mod:AddAuraSoundOption(1226018, true, 1226442, 1, 1, "runout", 2)--Starkiller Swing
 --Post midnight private auras
-mod:AddPrivateAuraSoundOption(1227549, true, 1227529, 1, 1, "scatter", 2)--Banishment
-mod:AddPrivateAuraSoundOption(1231097, true, 1231097, 1, 2, "watchfeet", 8)--GTFO
+mod:AddAuraSoundOption(1227549, true, 1227529, 1, 1, "scatter", 2)--Banishment
+mod:AddAuraSoundOption(1231097, true, 1231097, 1, 2, "watchfeet", 8)--GTFO
 
 function mod:OnLimitedCombatStart(delay)
 	self:EnableAlertOptions(1227470, 443, "breathsoon", 2)

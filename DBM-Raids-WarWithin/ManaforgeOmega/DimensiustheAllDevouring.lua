@@ -12,15 +12,15 @@ mod.respawnTime = 29
 
 mod:RegisterCombat("combat")
 
---Midnight private aura replacements
+--Custom Aura Sounds
 --TODO, add Null Binding? spam can't be controlled
-mod:AddPrivateAuraSoundOption(1228206, true, 1228206, 1, 1, "targetyou", 2)--Excess Mass
-mod:AddPrivateAuraSoundOption(1243577, true, 1243577, 1, 1, "scatter", 2)--Reverse Gravity
-mod:AddPrivateAuraSoundOption(1232394, true, 1232394, 1, 1, "safenow", 2)--P3 gravity Well
-mod:AddPrivateAuraSoundOption(1234243, true, 1234243, 1, 1, "scatter", 2)--Crushing Gravity
-mod:AddPrivateAuraSoundOption(1234244, true, 1234244, 1, 1, "scatter", 2)--P2 Inverse gravity
-mod:AddPrivateAuraSoundOption(1249425, true, 1249425, 1, 1, "lineyou", 17)--Mass Destruction
-mod:AddPrivateAuraSoundOption(1237696, true, 1237696, 1, 2, "watchfeet", 8)--GTFO
+mod:AddAuraSoundOption(1228206, true, 1228206, 1, 1, "targetyou", 2)--Excess Mass
+mod:AddAuraSoundOption(1243577, true, 1243577, 1, 1, "scatter", 2)--Reverse Gravity
+mod:AddAuraSoundOption(1232394, true, 1232394, 1, 1, "safenow", 2)--P3 gravity Well
+mod:AddAuraSoundOption(1234243, true, 1234243, 1, 1, "scatter", 2)--Crushing Gravity
+mod:AddAuraSoundOption(1234244, true, 1234244, 1, 1, "scatter", 2)--P2 Inverse gravity
+mod:AddAuraSoundOption(1249425, true, 1249425, 1, 1, "lineyou", 17)--Mass Destruction
+mod:AddAuraSoundOption(1237696, true, 1237696, 1, 2, "watchfeet", 8)--GTFO
 
 mod:RegisterEventsInCombat(
 	"ENCOUNTER_TIMELINE_EVENT_STATE_CHANGED"

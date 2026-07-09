@@ -21,11 +21,11 @@ mod:AddCustomTimerOptions(1227276, true, 3, 0)--Soulfray Annihilation
 mod:AddCustomTimerOptions(1237607, true, 5, 0)--Mythic Lash
 mod:AddCustomTimerOptions(1225626, true, 3, 0)--Soulfire Convergence
 mod:AddCustomTimerOptions(1225582, true, 1, 0)--Soul Calling
---Midnight private aura replacements
-mod:AddPrivateAuraSoundOption({1237607,1248464}, true, 1237607, 1, 1, "defensive", 2)--Mythic Lash
-mod:AddPrivateAuraSoundOption(1227276, true, 1227276, 1, 1, "lineyou", 17)
-mod:AddPrivateAuraSoundOption(1225626, true, 1225626, 1, 1, "orbrun", 17)
-mod:AddPrivateAuraSoundOption(1242086, true, 1242086, 1, 2, "watchfeet", 8)--GTFO
+--Custom Aura Sounds
+mod:AddAuraSoundOption({1237607,1248464}, true, 1237607, 1, 1, "defensive", 2)--Mythic Lash
+mod:AddAuraSoundOption(1227276, true, 1227276, 1, 1, "lineyou", 17)
+mod:AddAuraSoundOption(1225626, true, 1225626, 1, 1, "orbrun", 17)
+mod:AddAuraSoundOption(1242086, true, 1242086, 1, 2, "watchfeet", 8)--GTFO
 
 function mod:OnLimitedCombatStart()
 	self:EnableAlertOptions(1223859, {345, 346}, "carefly", 2)

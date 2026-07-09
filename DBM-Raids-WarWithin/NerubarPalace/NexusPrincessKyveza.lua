@@ -65,10 +65,10 @@ local timerStarlessNightCD						= mod:NewCDCountTimer(120, 435405, nil, nil, nil
 local timerStarlessNight						= mod:NewBuffActiveTimer(24, 435405, nil, nil, nil, 5)
 
 mod:AddNamePlateOption("NPOnMask", 448364)
-mod:AddPrivateAuraSoundOption(438141, true, 438245, 1, nil, "runout", 2)--Twilight Massacre Target
-mod:AddPrivateAuraSoundOption({436671,436664,436677,436665,436663,436666,435534}, true, 435486, 1, nil, "lineyou", 17)--Regicide Targets
-mod:AddPrivateAuraSoundOption(436870, true, 436867, 1, nil, "runout", 2)--Assassination Targets
-mod:AddPrivateAuraSoundOption({437343,463273,463276}, true, 437343, 1, 1, "runout", 2)--Queen's Bane (heroic+)
+mod:AddAuraSoundOption(438141, true, 438245, 1, nil, "runout", 2)--Twilight Massacre Target
+mod:AddAuraSoundOption({436671,436664,436677,436665,436663,436666,435534}, true, 435486, 1, nil, "lineyou", 17)--Regicide Targets
+mod:AddAuraSoundOption(436870, true, 436867, 1, nil, "runout", 2)--Assassination Targets
+mod:AddAuraSoundOption({437343,463273,463276}, true, 437343, 1, 1, "runout", 2)--Queen's Bane (heroic+)
 
 mod.vb.assCount = 0
 mod.vb.assIcon = 1
@@ -196,7 +196,7 @@ function mod:SPELL_AURA_APPLIED(args)
 			specWarnDeathCloak:Play("aesoon")
 		end
 	elseif spellId == 440576 then
-		local uId = DBM:GetRaidUnitId(args.destName)
+		local uId = DBM:GetRaidUnitId(args.destName, true)
 		if self:IsTanking(uId) then
 			local amount = args.amount or 1
 			--Applies 4 stacks at a time (then just refreshes after that)

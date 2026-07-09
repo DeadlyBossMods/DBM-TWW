@@ -108,7 +108,7 @@ local timerSprayandPrayCD							= mod:NewCDCountTimer(70, 466545, nil, nil, nil,
 local timerDoubleWhammyCD							= mod:NewCDCountTimer(70, 469491, nil, nil, nil, 5, nil, DBM_COMMON_L.TANK_ICON)
 local timerElectroShockerCD							= mod:NewCDCountTimer(30, -31766, nil, nil, nil, 1)
 
-mod:AddPrivateAuraSoundOption(472354, true, 466539, 1, 1, "bombyou", 12)--Fixate debuff linked to unstable crawler mines
+mod:AddAuraSoundOption(472354, true, 466539, 1, 1, "bombyou", 12)--Fixate debuff linked to unstable crawler mines
 mod:AddNamePlateOption("NPAuraOnChargedShield", 1222948)
 mod:AddSetIconOption("SetIconOnMines", 466539, false, 5, {1, 2, 3, 4, 5, 6, 7, 8}, true)
 --Intermission: Bulletstorm
@@ -446,7 +446,7 @@ function mod:SPELL_AURA_APPLIED(args)
 			specWarnGoldenDripMove:Show()
 			specWarnGoldenDripMove:Play("keepmove")
 		else
-			local uId = DBM:GetRaidUnitId(args.destName)
+			local uId = DBM:GetRaidUnitId(args.destName, true)
 			if self:IsTanking(uId) then
 				specWarnGoldenDripTaunt:Show(args.destName)
 				specWarnGoldenDripTaunt:Play("tauntboss")
@@ -492,7 +492,7 @@ function mod:SPELL_AURA_APPLIED(args)
 	--		yellDoubleWhammyFades:Countdown(spellId)
 	--	end
 	elseif spellId == 469601 and not args:IsPlayer() then
-		local uId = DBM:GetRaidUnitId(args.destName)
+		local uId = DBM:GetRaidUnitId(args.destName, true)
 		if self:IsTanking(uId) and not DBM:UnitDebuff("player", spellId) then
 			specWarnDoubleWhammyTaunt:Show(args.destName)
 			specWarnDoubleWhammyTaunt:Play("tauntboss")
