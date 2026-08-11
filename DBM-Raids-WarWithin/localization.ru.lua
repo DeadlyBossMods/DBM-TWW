@@ -81,7 +81,7 @@ L:SetOptionLocalization({
 L = DBM:GetModLocalization("NerubarPalaceTrash")
 
 L:SetGeneralLocalization({
-	name =	"Трэш мобы Неруб'арский дворец"
+	name =	"Трэш: Неруб'арский дворец"
 })
 
 L:SetMiscLocalization({
