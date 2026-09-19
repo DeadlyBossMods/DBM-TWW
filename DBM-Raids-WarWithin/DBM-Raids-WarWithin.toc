@@ -1,5 +1,5 @@
 ## Interface: 120100
-## X-Min-Interface: 100206
+## AllowLoadGameType: standard
 ## Category: DBM
 
 ## Title:|cffffe00a<|r|cffff7d0aDBM Mod|r|cffffe00a>|r |cffff6010Raids (WW)|r
