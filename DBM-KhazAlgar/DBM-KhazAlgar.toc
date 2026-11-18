@@ -27,8 +27,8 @@
 ## X-DBM-Mod-MinExpansion: 10
 
 localization.en.lua
-localization.kr.lua
-localization.ru.lua
+localization.kr.lua [AllowLoadTextLocale koKR]
+localization.ru.lua [AllowLoadTextLocale ruRU]
 
 Kordac.lua
 AggregationofHorrors.lua
