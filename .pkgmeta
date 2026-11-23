@@ -1,5 +1,8 @@
 package-as: DBM-Raids-WarWithin
 
+required-dependencies:
+  - deadly-boss-mods
+
 move-folders:
   DBM-Raids-WarWithin/DBM-KhazAlgar: DBM-KhazAlgar
   DBM-Raids-WarWithin/DBM-Raids-WarWithin: DBM-Raids-WarWithin
